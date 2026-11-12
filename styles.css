@@ -263,3 +263,10 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .recursos .linea{display:flex;flex-direction:column;gap:6px}
 .mas-r{margin-top:auto;padding-top:10px;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
 .mas-r.pend{opacity:.6}
+
+/* Toda la tarjeta es clicable cuando tiene enlace */
+.ficha-p{position:relative}
+.ficha-p a.mas::after{content:"";position:absolute;inset:0;border-radius:24px}
+.ficha-p:has(a.mas){cursor:pointer;transition:transform .4s ease}
+.ficha-p:has(a.mas):hover{transform:translateY(-4px)}
+.ficha-p:has(a.mas) h3{text-decoration:underline wavy var(--naranja);text-decoration-thickness:2px;text-underline-offset:5px}

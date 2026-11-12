@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DAC · Diccionarios Audiovisuales Comunitarios · La Combi</title>
+<meta name="description" content="Canal DAC: cápsulas de los Diccionarios Audiovisuales Comunitarios, hechas por niñas, niños y adolescentes en sus lenguas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="La Combi · arte rodante, inicio"><img src="assets/logo-horizontal-negro.png" alt="La Combi"></a>
+    <button class="boton-menu" aria-expanded="false" aria-controls="menu">Menú</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html#quienes">Quiénes somos</a></li>
+      <li><a href="index.html#que">Qué hacemos</a></li>
+      <li><a href="index.html#experiencias">Proyectos</a></li>
+      <li><a href="dac.html" aria-current="page">DAC</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="bloque f-azul canal-cab" data-ruta="esquina">
+    <div class="wrap">
+      <img class="dac-logo" src="assets/dac-logo-blanco.png" alt="DAC · Diccionarios Audiovisuales Comunitarios">
+      <h1>Diccionarios Audiovisuales <span class="ondas blanco">Comunitarios</span></h1>
+      <p>Las comunidades crean sus propios diccionarios: cápsulas de 2 a 3 minutos que recogen palabras de su lengua y las tradiciones orales ligadas a ellas. Un diccionario vivo, ordenado de la A a la Z, que no solo explica qué significa una palabra, sino que la sitúa en el territorio, la cosmovisión y los valores de quien la habla.</p>
+      <div class="cifras">
+        <div><b id="n-cap">0</b><span>cápsulas</span></div>
+        <div><b id="n-len">0</b><span>lenguas</span></div>
+        <div><b>3</b><span>países</span></div>
+      </div>
+      <p style="margin-top:34px"><a class="boton" href="#canal">Ver el Canal DAC</a></p>
+    </div>
+  </section>
+
+  <section class="bloque f-blanco" id="proceso">
+    <div class="wrap">
+      <span class="etiqueta">Cómo nace un diccionario</span>
+      <h2 class="titulo">Tres pasos, <span class="ondas">siempre</span> con la comunidad</h2>
+      <div class="lineas">
+        <article class="linea">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#FF8200" stroke-width="3" stroke-linecap="round"><path d="M24 24m-3 0a3 3 0 1 0 6 0a8 8 0 1 0-16 0a13 13 0 1 0 26 0a18 18 0 1 0-36 0"/></svg>
+          <h3>Encuentro comunitario</h3>
+          <p>Un diálogo entre generaciones, con cine comunitario y dinámicas participativas. Sabias, sabios, personas adultas y abuelos comparten sus saberes y eligen las palabras del diccionario.</p>
+        </article>
+        <article class="linea">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#3333FF" stroke-width="3" stroke-linecap="round"><path d="M4 24c4-8 8-8 12 0s8 8 12 0 8-8 12 0 4 4 4 4"/></svg>
+          <h3>Laboratorio audiovisual</h3>
+          <p>Veinte niñas, niños y adolescentes de 7 a 14 años aprenden a grabar y crean tres cápsulas con las palabras elegidas: documental, ficción o animación en stop motion.</p>
+        </article>
+        <article class="linea">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#FF0066" stroke-width="3" stroke-linecap="round"><path d="M8 34c6-14 22-22 32-20M30 8l10 6-6 10"/></svg>
+          <h3>Formación de formadores</h3>
+          <p>Docentes y líderes comunitarios se forman para seguir haciendo cápsulas con las siguientes generaciones. El diccionario sigue creciendo cuando nos vamos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque f-blanco" id="canal" style="padding-bottom:30px">
+    <div class="wrap">
+      <span class="etiqueta">La videoteca del proyecto</span>
+      <h2 class="titulo">Canal DAC</h2>
+      <p class="texto">Todas las cápsulas, hechas por niñas, niños y adolescentes, con subtítulos en castellano para que las lenguas se escuchen entre sí. Busca una palabra o filtra por lengua.</p>
+    </div>
+  </section>
+
+  <div class="filtros">
+    <div class="wrap">
+      <input class="buscador" id="buscar" type="search" placeholder="Busca una palabra: luna, maíz, río…" aria-label="Buscar cápsula">
+      <div class="chips" id="chips" role="group" aria-label="Filtrar por lengua"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="rejilla" id="rejilla"></div>
+    <p class="sin-resultados" id="vacio">No hay cápsulas con esa palabra. Prueba con otra o quita el filtro de lengua.</p>
+  </div>
+
+  <section class="bloque f-naranja" id="lenguas" data-ruta="techo">
+    <div class="wrap">
+      <span class="etiqueta">Las lenguas y sus comunidades</span>
+      <h2 class="titulo">Cada diccionario nace en una comunidad</h2>
+      <div class="lenguas" id="lista-lenguas"></div>
+      <p class="aviso">Todo el trabajo se hace desde las comunidades, con su validación y consentimiento, y de la mano de docentes de educación intercultural bilingüe y de las organizaciones indígenas.</p>
+    </div>
+  </section>
+
+  <section class="bloque f-blanco" id="trayectoria">
+    <div class="wrap dos" style="align-items:start">
+      <div>
+        <span class="etiqueta">Trayectoria</span>
+        <h2 class="titulo">Rumbo al Decenio de las Lenguas Indígenas</h2>
+        <div class="texto">
+          <p>El DAC quiere contribuir a la Declaración de Los Pinos, la hoja de ruta del Decenio Internacional de las Lenguas Indígenas (2022–2032), que defiende el derecho de los pueblos indígenas a expresarse, aprender y participar en la vida pública en sus propias lenguas.</p>
+        </div>
+      </div>
+      <ul class="premios">
+        <li><b>2020</b> Premio ConectaRSE para Crecer, de Movistar Perú, categoría Educación (10.ª edición).</li>
+        <li><b>2018 y 2021</b> Estímulos Económicos para la Actividad Cinematográfica y Audiovisual del Ministerio de Cultura del Perú.</li>
+        <li><b>2019</b> IberEntrelazando Experiencias, de IberCultura Viva: taller en la comunidad de Cabañas (Acayucan, México).</li>
+        <li><b>IberCultura Viva</b> La cápsula <i>Pokchi</i>, ganadora del concurso «Comunidades lingüísticas: identidad y salvaguardia».</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloque f-magenta" id="descargas" data-ruta="esquina-izq">
+    <div class="wrap">
+      <span class="etiqueta">Descargas</span>
+      <h2 class="titulo">Para llevar el DAC al aula</h2>
+      <div class="descargas">
+        <a class="descarga" href="assets/descargas/portafolio-dac.pdf" target="_blank" rel="noopener">
+          <img src="assets/descargas/portafolio-dac.jpg" alt="Portada del portafolio DAC">
+          <span><span class="etiqueta">PDF · 17 páginas · 2,9 MB</span><b>Portafolio DAC</b>El proyecto, el proceso de los talleres, la videoteca y las fichas de cada cápsula, ordenadas por lengua.<em>Descargar →</em></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Ficha de cada cápsula: se abre con un enlace propio (canal-dac.html#palabra) -->
+<div class="ficha" id="ficha" role="dialog" aria-modal="true" aria-labelledby="ficha-palabra">
+  <div class="ficha-caja" id="ficha-caja">
+    <button class="cerrar" id="cerrar">Cerrar ✕</button>
+    <span class="etiqueta" id="ficha-lengua"></span>
+    <h2 id="ficha-palabra"></h2>
+    <p class="trad" id="ficha-trad"></p>
+    <div class="marco" id="ficha-video"></div>
+    <p class="sinopsis" id="ficha-sin"></p>
+    <dl class="datos" id="ficha-datos"></dl>
+    <div class="acciones">
+      <button id="copiar">Copiar enlace</button>
+      <button id="anterior">← Anterior</button>
+      <button id="siguiente">Siguiente →</button>
+    </div>
+  </div>
+</div>
+
+<footer class="pie">
+  <div class="wrap">
+    <div>
+      <img src="assets/logo-vertical-blanco.png" alt="La Combi">
+      <small>la combi arte rodante · © 2026</small>
+    </div>
+    <ul class="redes">
+      <li><a href="https://www.instagram.com/lacombiarterodante">Instagram</a></li>
+      <li><a href="https://www.facebook.com/lacombi.arterodante">Facebook</a></li>
+      <li><a href="https://www.youtube.com/channel/UCHf-VamgDCu75dCzhq9Jtew">YouTube</a></li>
+      <li><a href="https://vimeo.com/user87088380">Vimeo</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="comun.js"></script>
+<script>
+/* ===== DATOS DEL CANAL =====
+   Para añadir una cápsula, copia una línea y cambia los datos.
+   video: enlace de YouTube o Vimeo (déjalo vacío "" si aún no está subido). */
+var LENGUAS={
+  'quechua':        {nombre:'Quechua', texto:'Lengua andina, la más hablada del Perú, con unos 3,3 millones de hablantes y variedades en siete países de Sudamérica.',        comunidad:'Amantaní (Puno), Quico, Nación Q’ero (Cusco) y Punkupata (Ayacucho)', pais:'Perú',   familia:'Quechua'},
+  'yine':           {nombre:'Yine', texto:'Lengua amazónica de la familia arawak, hablada en el Bajo Urubamba.',           comunidad:'Miaría (Cusco)',            pais:'Perú',   familia:'Arawak'},
+  'matsigenka':     {nombre:'Matsigenka', texto:'Lengua amazónica de la familia arawak, vital, hablada en Cusco, Madre de Dios, Ayacucho y Lima.',     comunidad:'Nueva Luz (Cusco)',         pais:'Perú',   familia:'Arawak'},
+  'zoque-popoluca': {nombre:'Zoque-popoluca', texto:'Lengua de la familia mixe-zoque, hablada en el sur de Veracruz. México tiene 68 lenguas indígenas.', comunidad:'Cabañas (Veracruz)',        pais:'México', familia:'Mixe-zoque'},
+  'yanesha':        {nombre:'Yánesha', texto:'Lengua amazónica de la familia arawak, hablada en la selva central del Perú.',        comunidad:'Tsachopén (Pasco)',         pais:'Perú',   familia:'Arawak'},
+  'shipibo-konibo': {nombre:'Shipibo-konibo', texto:'Lengua amazónica de la familia pano, hablada en las cuencas del Ucayali, el Pisqui y el Madre de Dios.', comunidad:'San Francisco (Ucayali)',   pais:'Perú',   familia:'Pano'},
+  'ese-eja':        {nombre:'Ese eja', texto:'Lengua amazónica de la familia tacana, entre Perú y Bolivia. La UNESCO la considera seriamente en peligro.',        comunidad:'Infierno (Madre de Dios)',  pais:'Perú',   familia:'Tacana'},
+  'aymara':         {nombre:'Aymara', texto:'Lengua andina de la familia aru, vital, con unos 443.000 hablantes en Perú, Bolivia, Argentina y Chile.',         comunidad:'Chua Chua (Puno)',          pais:'Perú',   familia:'Aru'},
+  'por-confirmar':  {nombre:'Lengua por confirmar', comunidad:'Por confirmar',       pais:'—',      familia:'—'}
+};
+var CAPSULAS=[
+  // p: palabra · t: traducción · l: lengua · d: duración · v: vídeo (Vimeo o YouTube) · a: año · s: sinopsis · c: comunidad (si es distinta de la de la lengua)
+  {"p": "Cantuta", "t": "Cantuta", "l": "quechua", "d": "2:47", "c": "Amantaní (Puno)"},
+  {"p": "Amantaní", "t": "Amantaní", "l": "quechua", "d": "2:47", "c": "Amantaní (Puno)"},
+  {"p": "Eje Eje", "t": "Condenado", "l": "quechua", "d": "2:34", "c": "Amantaní (Puno)"},
+  {"p": "Koopajom", "t": "Cabañas", "l": "zoque-popoluca", "d": "2:57"},
+  {"p": "Nii Chima", "t": "El perro del agua", "l": "zoque-popoluca", "d": "3:33"},
+  {"p": "Jem Mok", "t": "El maíz", "l": "zoque-popoluca", "d": "3:27"},
+  {"p": "Cachipa", "t": "Queso", "l": "quechua", "d": "2:44"},
+  {"p": "Kamaleki", "t": "Piripiri", "l": "yine", "d": "2:34", "v": "https://vimeo.com/362922919", "a": 2017, "s": "Evita los embarazos y quita el «mal aire». El bosque ofrece decenas de tipos de piripiri que curan múltiples dolencias, y los Yine de Miaría conocen cómo y cuándo usar cada uno de ellos."},
+  {"p": "Yine Yami", "t": "Gente del río grande", "l": "yine", "d": "2:30", "v": "https://vimeo.com/362924966", "a": 2017, "s": "Otros grupos étnicos viven cerca de las cabeceras de las quebradas, pero los Yine Yami lo hacen cerca de los ríos grandes, cuyas aguas fueron traídas por una gran anaconda para salvarlos de la hambruna."},
+  {"p": "Shimeglak", "t": "Pescador", "l": "yine", "d": "2:29", "v": "https://vimeo.com/362922180", "a": 2017, "s": "Los Yine siempre han sido buenos pescadores. Conocen todos los peces del Urubamba: los que pueden consumir, como el boquichico, la doncella o la carachama, y los que pueden ser peligrosos, como la piraña, la anguila eléctrica y la raya."},
+  {"p": "Komlu", "t": "Ají", "l": "yine", "d": "2:21", "v": "https://vimeo.com/362914414", "a": 2017, "s": "Existen muchas variedades de ají con diferentes sabores. Algunos muy picantes, como el ají redondo, y otros más dulces, que se usan para sopas. El que más se consume en Miaría, sin embargo, es el charapita, con el que se hace una salsa picante que acompaña todas las comidas."},
+  {"p": "Shiromega", "t": "Paloma", "l": "matsigenka", "d": "2:00", "v": "https://vimeo.com/363022610", "a": 2017, "s": "Las canciones de las mujeres Matsiguenka hablan de la vida, del amor y del dolor por las despedidas."},
+  {"p": "Sekatsi", "t": "Yuca", "l": "matsigenka", "d": "1:59", "v": "https://vimeo.com/363024370", "a": 2017, "s": "Las comunidades que viven en la selva cultivan mucho la yuca. Se dice que antiguamente los Matsiguenka comían arcilla, hasta que la luna bajó del cielo y les dio este tubérculo que ahora cultivan en las chacras."},
+  {"p": "Inchato", "t": "Árbol", "l": "matsigenka", "d": "1:41", "v": "https://vimeo.com/363018673", "a": 2017, "s": "Los Matsiguenka conocen muchas especies de árboles. Algunos les dan la madera que usan para construir casas y canoas, otros les dan frutos para comer y hay incluso algunos, como el grado, cuya savia les ayuda a curar heridas y a sanar de enfermedades como la tos y la gastritis."},
+  {"p": "Samani", "t": "Majaz", "l": "matsigenka", "d": "1:43", "v": "https://vimeo.com/363021481", "a": 2017, "s": "El majaz es un roedor que vive en el monte. Sale de noche y come semillas, frutos, yuca y maíz. Los cazadores usan trampas para cogerlos y saben que no se debe atrapar más majaces que los que se van a comer. Se dice que antes eran personas y que tienen espíritus que los cuidan."},
+  {"p": "Pesori", "t": "Bufeo", "l": "matsigenka", "d": "1:36", "v": "https://vimeo.com/363019227", "a": 2017, "s": "Cuando el río está bajo algunas personas ven al bufeo, un ser mágico que afirman seduce a los hombres para casarse con ellos. Un matrimonio especial del que nacen las sirenas, que también buscan esposos humanos para llevárselos a vivir con ellas bajo las aguas de las quebradas."},
+  {"p": "Tisoni", "t": "Gallinazo", "l": "matsigenka", "d": "1:46", "v": "https://vimeo.com/363020258", "a": 2017, "s": "El gallinazo es muy importante en la naturaleza. Se come a los animales muertos y así evita que haya enfermedades. Se dice que era una persona que no sabía cazar y que por eso, aún convertido en pájaro, depende de las personas para alimentarse."},
+  {"p": "Chakopi", "t": "Flecha", "l": "matsigenka", "d": "1:39", "v": "https://vimeo.com/363019719", "a": 2017, "s": "Los Matsiguenka construyen flechas que usan tanto para cazar como para pescar. Usan madera de izana para el cuerpo y de shika shika para la punta, hilo de algodón para los amarres y plumas para decorarlas y que sean más veloces."},
+  {"p": "Oshetoniro", "t": "Mono endemoniado", "l": "matsigenka", "d": "1:44", "v": "https://vimeo.com/363022069", "a": 2017, "s": "El oshetoniro es un animal pero también un demonio grande y feroz que vive en el monte junto a los ríos, donde algunos aseguran haber visto sus huellas. Puede ahogar a las personas y llevárselas al monte para transformarlas."},
+  {"p": "Oshi", "t": "Hoja", "l": "matsigenka", "d": "1:58", "v": "https://vimeo.com/363020797", "a": 2017, "s": "Las hojas de las plantas son muy importantes: producen el oxígeno que necesitamos para vivir y sirven de comida a muchos animales. Los Matsiguenka usan el shebon para construir los techos de las casas, las de bijao para hacer el juane y se cubren con ellas cuando hace mucho sol o llueve."},
+  {"p": "Ivenkiki", "t": "Piripiri", "l": "matsigenka", "d": "2:24", "v": "https://vimeo.com/363023485", "a": 2017, "s": "El piripiri es una planta medicinal que tiene múltiples usos. Puede curarte de la mordedura de una serpiente venenosa o hacer que tu pelo sea muy largo, gracias a un tratamiento especial que siempre debe comenzar en tiempo de luna nueva."},
+  {"p": "Knoya", "t": "Motelo", "l": "yine", "d": "2:27", "v": "https://vimeo.com/362921386", "a": 2017, "s": "Nadie apostaba por la motelo en su carrera contra el venado, pero esta tenía un plan secreto que guiaría la historia hacia un final inesperado."},
+  {"p": "Pishta", "t": "Pishta", "l": "yine", "d": "2:03", "v": "https://vimeo.com/362923795", "a": 2017, "s": "Al cumplir los 15 años, las jóvenes de Miaría bailan la pishta para presentarse en sociedad. La danza se realiza siempre en agosto, durante el aniversario de la comunidad, con trajes tradicionales y cuerpos pintados con diseños transmitidos de generación en generación."},
+  {"p": "Miaría", "t": "Miaría", "l": "yine", "d": "1:57", "v": "https://vimeo.com/362920835", "a": 2017, "s": "Miaría no es una palabra yine, sino shipibo: significa «mi quebrada» y alude a un pasado lejano en el que las dos etnias pelearon por el mismo territorio, muchos años antes de que la comunidad creciera y contara con los seis barrios que la forman hoy."},
+  {"p": "Gimnunaji", "t": "Sangre de grado", "l": "yine", "d": "1:38", "v": "https://vimeo.com/362924472", "a": 2017, "s": "La selva es una gran botica natural y la savia del árbol de grado, que crece en el bosque y en las chacras, es usada por los Yine de Miaría para cicatrizar las heridas y curar enfermedades como la tos y la gastritis."},
+  {"p": "Ksuru", "t": "Luna", "l": "yine", "d": "1:47", "v": "https://vimeo.com/362925766", "a": 2017, "s": "Klana estaba perdidamente enamorada de la luna, un hombre apuesto que siempre irradiaba luz, hasta que el despecho de la joven hizo que esto cambiara para siempre."},
+  {"p": "Sergogneru", "t": "Cielo rojo", "l": "yine", "d": "1:46", "v": "https://vimeo.com/362919603", "a": 2017, "s": "El cielo, muchas veces, nos dice cosas. Y cuando en Miaría se tiñe de rojo todos saben que es el anuncio de que pronto vendrá una gran lluvia o, según la tonalidad, señal de que habrá una gran guerra."},
+  {"p": "Papacuna", "t": "Papas", "l": "quechua", "d": "3:48", "v": "https://vimeo.com/361842967", "a": 2019, "s": "La papa es el principal alimento de Quico. Se cultiva entre los 3 mil y los 4 mil metros de altura y se cocina de muchas maneras diferentes. ¿Sabes lo que es la watia? Los niños y niñas de esta comunidad de la Nación Q’ero te lo cuentan.", "c": "Quico, Nación Q’ero (Cusco)"},
+  {"p": "Intiwan Puyowan", "t": "El sol y las nubes", "l": "quechua", "d": "3:58", "v": "https://vimeo.com/374266983", "a": 2019, "s": "En Quico el cielo es azul y el sol calienta fuerte, pero también es posible ver muchas nubes. Vienen desde abajo, desde las yungas, y llegan hasta la comunidad en forma de neblina. ¿Sabes por qué son tan importantes? ¡Los niños y niñas de esta comunidad de la Nación Q’ero te lo explican!", "c": "Quico, Nación Q’ero (Cusco)"},
+  {"p": "Llamawari vs. Paquchawari", "t": "Llamas vs. alpacas", "l": "quechua", "d": "4:02", "v": "https://vimeo.com/374262968", "a": 2019, "s": "La llama Juana y la alpaca Luisa son familia pero no son iguales. Su lana es diferente y sus labores dentro de la comunidad también. ¿Sabes qué es lo que las hace diferentes? Los niños y niñas de Quico, en la Nación Q’ero, te lo muestran.", "c": "Quico, Nación Q’ero (Cusco)"},
+  {"p": "Isinaka", "t": "Vestimenta", "l": "aymara", "d": "2:48", "v": "https://vimeo.com/385509054", "a": 2018, "s": "En las fiestas importantes, los Aymara de Chua Chua, en Puno, llevan orgullosos sus vestimentas tradicionales, elaboradas con lana de oveja y fibra de alpaca. Todos sus tejidos hablan y sus diseños cuentan historias infinitas sobre el lago, las chacras, las ranas y el paso del tiempo."},
+  {"p": "Pesque", "t": "Quinua con leche", "l": "aymara", "d": "2:19", "v": "https://vimeo.com/383948859", "a": 2018, "s": "La quinua nació en los alrededores del lago Titicaca hace más de 5 mil años. Es un super alimento que las estrellas regalaron a los Aymara, los astronautas la llevan al espacio en cada uno de sus viajes y los pobladores de Chua Chua, en Puno, la desayunan cada mañana, mezclada con la leche que les dan sus propias vacas."},
+  {"p": "Wiñay Marka", "t": "Lago Titicaca", "l": "aymara", "d": "2:49", "v": "https://vimeo.com/383956318", "a": 2018, "s": "El lago navegable más alto del mundo, el Titicaca, es conocido por los Aymara como Wiñay Marka. De sus aguas, los pobladores sacan los peces para comer; en sus orillas viven animales únicos, como las ranas gigantes; y en sus profundidades descansan los restos de los temidos pumas grises."},
+  {"p": "Sa’ona", "t": "Boa", "l": "ese-eja", "d": "3:14", "v": "https://vimeo.com/401199382", "a": 2018, "s": "Una gran boa se llevó a una bella joven que lavaba ropa en la orilla del río. Su madre, asustada por lo que podía haberle pasado, fue a buscarla hasta el fondo de la corriente, y lo que allí encontró fue un mundo diferente en el que nada era lo que parecía. Ni el maíz, ni el perro, ni —por supuesto— la boa."},
+  {"p": "Baawaja", "t": "Río Tambopata", "l": "ese-eja", "d": "2:14", "v": "https://vimeo.com/402295503", "a": 2018, "s": "El río Tambopata, en Madre de Dios, es conocido por los Ese Eja como Baawaja, por el sonido que hacen sus aguas en su parte alta, cuando discurren entre pequeñas piedras que dan lugar a numerosas cascadas. En él habitan peces, monos, loros y sirenas, que atraen con sus cantos a los hombres en las noches de luna llena."},
+  {"p": "Bicicletay Apawan", "t": "Mi bicicleta", "l": "quechua", "d": "3:13"},
+  {"p": "Ruqu", "t": "Sombrero", "l": "quechua", "d": "2:37"},
+  {"p": "Kashem vs. Shetamoets", "t": "Cushma de hombre vs. cushma de mujer", "l": "yanesha", "d": "2:51"},
+  {"p": "Akankareth", "t": "Pollo a la candela", "l": "yanesha", "d": "2:49"},
+  {"p": "Yompere", "t": "Yompere", "l": "por-confirmar", "d": "3:30"},
+  {"p": "Kene", "t": "Diseños kene", "l": "shipibo-konibo", "d": "2:58", "v": "https://vimeo.com/357015439", "a": 2019, "s": "El kene es un arte femenino realizado por las mujeres Shipibo-Konibo. Ellas, a través de visiones que provienen de plantas sagradas, observan distintos patrones geométricos que luego pintan, tejen y bordan en los cuerpos, las telas y las tinajas."},
+  {"p": "Betén", "t": "Mazamorra", "l": "shipibo-konibo", "d": "3:26", "v": "https://vimeo.com/357591294", "a": 2019, "s": "¿Cuál es el plato hecho con plátano verde y pescado que tanto gusta a los pobladores de Ucayali? Los niños y niñas de la comunidad Shipibo-Konibo de San Francisco de Yarinacocha nos cuentan todos los secretos para preparar el mejor betén."},
+  {"p": "Masha", "t": "Danza masha", "l": "shipibo-konibo", "d": "2:45", "v": "https://vimeo.com/357016853", "a": 2019, "s": "Los Shipibo-Konibo son un pueblo que baila. Y cuando quieren rendir homenaje a la yakumama lo hacen de forma circular, en ceremonias colectivas en las que también beben masato. Todos danzan descalzos esbozando dibujos en el suelo."}
+];
+
+/* ===== LÓGICA ===== */
+var FONDOS=['f-naranja','f-magenta','f-azul'];
+function slug(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function etq(k){return k==='por-confirmar'?'Lengua por confirmar':'Lengua '+LENGUAS[k].nombre}
+function sinTilde(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
+var caps=CAPSULAS.map(function(c,i){return {palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',anio:c.a,sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:FONDOS[i%3]}});
+var filtro='todas', texto='', visibles=caps;
+
+var cuenta={}; caps.forEach(function(c){cuenta[c.lengua]=(cuenta[c.lengua]||0)+1});
+document.getElementById('n-cap').textContent=caps.length;
+document.getElementById('n-len').textContent=Object.keys(cuenta).filter(function(k){return k!=='por-confirmar'}).length;
+
+// Chips de lengua
+var chips=document.getElementById('chips');
+function chip(val,label,n){var b=document.createElement('button');b.className='chip';b.dataset.val=val;b.setAttribute('aria-pressed',val===filtro);
+  b.innerHTML=label+(n?'<small>'+n+'</small>':'');b.onclick=function(){filtro=val;chips.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.val===val)});pinta()};chips.appendChild(b)}
+chip('todas','Todas',caps.length);
+Object.keys(LENGUAS).forEach(function(k){if(cuenta[k])chip(k,LENGUAS[k].nombre,cuenta[k])});
+
+// Rejilla
+var rej=document.getElementById('rejilla');
+function pinta(){
+  var q=sinTilde(texto.trim());
+  visibles=caps.filter(function(c){return (filtro==='todas'||c.lengua===filtro)&&(!q||sinTilde(c.palabra+' '+c.trad+' '+LENGUAS[c.lengua].nombre).indexOf(q)>-1)});
+  rej.innerHTML='';
+  visibles.forEach(function(c){
+    var b=document.createElement('button');b.className='capsula '+c.fondo;b.dataset.id=c.id;
+    b.innerHTML='<span class="etiqueta">'+etq(c.lengua)+'</span><b>'+c.palabra+'</b><span class="trad">'+c.trad+'</span><span class="pie-cap"><span>'+LENGUAS[c.lengua].pais+'</span><span>▶ '+c.dur+'</span></span>';
+    b.onclick=function(){location.hash=c.id};
+    rej.appendChild(b); letrasVivas(b.querySelector('b'));
+  });
+  document.getElementById('vacio').style.display=visibles.length?'none':'block';
+}
+document.getElementById('buscar').addEventListener('input',function(e){texto=e.target.value;pinta()});
+pinta();
+
+// Lista de lenguas
+var ll=document.getElementById('lista-lenguas');
+Object.keys(LENGUAS).forEach(function(k){if(k==='por-confirmar')return;var L=LENGUAS[k];
+  var d=document.createElement('div');d.className='lengua';
+  d.innerHTML='<h3>'+L.nombre+'</h3><span class="etiqueta">'+L.pais+' · familia '+L.familia+'</span><p>'+L.comunidad+'</p><p style="margin-bottom:10px">'+(L.texto||'')+'</p><p><b>'+(cuenta[k]||0)+'</b> cápsulas'+(cuenta[k]?'':' · próximamente')+'</p>';
+  ll.appendChild(d)});
+
+// Ficha
+var ficha=document.getElementById('ficha'), caja=document.getElementById('ficha-caja'), actual=null;
+function embed(url){
+  var m=url.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/); if(m)return 'https://www.youtube-nocookie.com/embed/'+m[1]+'?rel=0';
+  m=url.match(/vimeo\.com\/(?:video\/)?(\d+)/); if(m)return 'https://player.vimeo.com/video/'+m[1];
+  return null}
+function abre(id){
+  var c=caps.find(function(x){return x.id===id}); if(!c){cierra();return}
+  actual=c; var L=LENGUAS[c.lengua];
+  caja.className='ficha-caja '+c.fondo;
+  document.getElementById('ficha-lengua').textContent=etq(c.lengua);
+  var h=document.getElementById('ficha-palabra'); delete h.dataset.viva; h.textContent=c.palabra; letrasVivas(h);
+  document.getElementById('ficha-trad').textContent=c.trad;
+  var v=document.getElementById('ficha-video'), src=c.video&&embed(c.video);
+  v.innerHTML=src?'<iframe src="'+src+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>':'<p class="pendiente">Vídeo pendiente de enlazar.</p>';
+  document.getElementById('ficha-sin').textContent=c.sinopsis;
+  document.getElementById('ficha-datos').innerHTML='<div><dt>Realizado por</dt><dd>Niñas, niños y adolescentes de '+(c.comunidad||L.comunidad)+'</dd></div><div><dt>País</dt><dd>'+L.pais+'</dd></div><div><dt>Familia lingüística</dt><dd>'+L.familia+'</dd></div><div><dt>Duración</dt><dd>'+c.dur+'</dd></div>';
+  ficha.classList.add('abierta'); document.body.style.overflow='hidden'; document.getElementById('cerrar').focus();
+}
+function cierra(){ficha.classList.remove('abierta');document.body.style.overflow='';document.getElementById('ficha-video').innerHTML='';
+  if(actual){var b=rej.querySelector('[data-id="'+actual.id+'"]');actual=null;if(location.hash)history.replaceState(null,'',location.pathname+location.search);if(b)b.focus()}}
+function salta(d){if(!actual)return;var lista=visibles.length?visibles:caps,i=lista.indexOf(actual);if(i<0)i=0;location.hash=lista[(i+d+lista.length)%lista.length].id}
+function ruta(){var h=location.hash.slice(1);if(h&&caps.some(function(c){return c.id===h}))abre(h);else if(actual)cierra()}
+window.addEventListener('hashchange',ruta);
+document.getElementById('cerrar').onclick=cierra;
+document.getElementById('anterior').onclick=function(){salta(-1)};
+document.getElementById('siguiente').onclick=function(){salta(1)};
+ficha.addEventListener('click',function(e){if(e.target===ficha)cierra()});
+document.addEventListener('keydown',function(e){if(!actual)return;if(e.key==='Escape')cierra();if(e.key==='ArrowRight')salta(1);if(e.key==='ArrowLeft')salta(-1)});
+document.getElementById('copiar').onclick=function(){var b=this,url=location.href.split('#')[0]+'#'+actual.id;
+  try{navigator.clipboard.writeText(url).then(function(){b.textContent='¡Copiado!';setTimeout(function(){b.textContent='Copiar enlace'},1600)},function(){b.textContent=url})}catch(e){b.textContent=url}};
+</script>
+<script>ruta();</script>
+</body>
+</html>

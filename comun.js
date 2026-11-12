@@ -9,10 +9,14 @@
   window.letrasVivas=function(el){
     if(!el||el.dataset.viva)return; el.dataset.viva=1; el.classList.add('viva');
     var t=el.textContent, seed=0; el.textContent='';
-    for(var i=0;i<t.length;i++){seed=(seed*9301+49297+t.charCodeAt(i)*7)%233280;
-      var r=seed/233280, s=document.createElement('span'); s.textContent=t[i]===' '?' ':t[i];
-      s.style.transform='translateY('+((r-.5)*0.08).toFixed(3)+'em) rotate('+((r-.5)*7).toFixed(1)+'deg)';
-      el.appendChild(s)}
+    t.split(' ').forEach(function(pal,k){
+      if(k)el.appendChild(document.createTextNode(' '));
+      var w=document.createElement('span'); w.className='pal';
+      for(var i=0;i<pal.length;i++){seed=(seed*9301+49297+pal.charCodeAt(i)*7)%233280;
+        var r=seed/233280, s=document.createElement('span'); s.textContent=pal[i];
+        s.style.transform='translateY('+((r-.5)*0.08).toFixed(3)+'em) rotate('+((r-.5)*7).toFixed(1)+'deg)';
+        w.appendChild(s)}
+      el.appendChild(w)});
     el.setAttribute('aria-label',t);
   };
   document.querySelectorAll('[data-viva]').forEach(function(e){e.removeAttribute('data-viva');letrasVivas(e)});

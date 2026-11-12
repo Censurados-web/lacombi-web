@@ -254,3 +254,12 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .borde-f-negro{border-top-color:#000!important}.borde-f-blanco-borde{border-top-color:#000!important}
 .f-naranja .lengua,.lengua{border-top-style:solid}
 .ficha-caja.f-blanco-borde{box-shadow:none}
+.pelis{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.peli{border-radius:22px;padding:24px 22px;display:flex;flex-direction:column;gap:8px}
+.peli h3{font-size:22px}
+.peli p{font-size:15px}
+.peli a{margin-top:auto;padding-top:10px;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.peli a:hover{text-decoration:underline}
+.recursos .linea{display:flex;flex-direction:column;gap:6px}
+.mas-r{margin-top:auto;padding-top:10px;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.mas-r.pend{opacity:.6}

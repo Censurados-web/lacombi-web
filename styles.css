@@ -270,3 +270,7 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .ficha-p:has(a.mas){cursor:pointer;transition:transform .4s ease}
 .ficha-p:has(a.mas):hover{transform:translateY(-4px)}
 .ficha-p:has(a.mas) h3{text-decoration:underline wavy var(--naranja);text-decoration-thickness:2px;text-underline-offset:5px}
+.ficha-p a.mas{align-self:flex-start;margin-top:auto;padding:10px 18px;border:2px solid #000;border-radius:999px;font-size:12px;background:#fff}
+.ficha-p:has(a.mas):hover a.mas{background:#000;color:#fff}
+.f-naranja .sin-foto.f-naranja{background:var(--azul);color:#fff}
+.f-azul .sin-foto.f-azul{background:var(--naranja);color:#000}

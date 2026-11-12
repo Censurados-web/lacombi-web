@@ -274,3 +274,9 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .ficha-p:has(a.mas):hover a.mas{background:#000;color:#fff}
 .f-naranja .sin-foto.f-naranja{background:var(--azul);color:#fff}
 .f-azul .sin-foto.f-azul{background:var(--naranja);color:#000}
+.notas{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:10px}
+.nota{display:flex;flex-direction:column;gap:8px;border:2px solid #000;border-radius:22px;padding:22px;text-decoration:none;transition:transform .4s,background .3s}
+.nota:hover{transform:translateY(-4px);background:var(--naranja)}
+.nota b{font-size:19px;line-height:1.25;font-weight:600}
+.nota span:not(.etiqueta){font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
+.nota em{margin-top:auto;padding-top:6px;font-style:normal;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase}

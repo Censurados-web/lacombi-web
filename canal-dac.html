@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canal DAC · La Combi · arte rodante</title>
+<meta name="description" content="Canal DAC: cápsulas de los Diccionarios Audiovisuales Comunitarios, hechas por niñas, niños y adolescentes en sus lenguas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="La Combi · arte rodante, inicio"><img src="assets/logo-horizontal-negro.png" alt="La Combi"></a>
+    <button class="boton-menu" aria-expanded="false" aria-controls="menu">Menú</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html#quienes">Quiénes somos</a></li>
+      <li><a href="index.html#que">Qué hacemos</a></li>
+      <li><a href="index.html#proyectos">Proyectos</a></li>
+      <li><a href="canal-dac.html" aria-current="page">Canal DAC</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="bloque f-azul canal-cab" data-ruta="esquina">
+    <div class="wrap">
+      <img class="dac-logo" src="assets/dac-logo-blanco.png" alt="DAC · Diccionarios Audiovisuales Comunitarios">
+      <h1>Canal <span class="ondas blanco">DAC</span></h1>
+      <p>Cápsulas de 2 a 3 minutos hechas por niñas, niños y adolescentes que guardan su lengua. Cada palabra trae consigo una historia, un saber o una costumbre, con subtítulos en castellano para que las lenguas se escuchen entre sí.</p>
+      <div class="cifras">
+        <div><b id="n-cap">0</b><span>cápsulas</span></div>
+        <div><b id="n-len">0</b><span>lenguas</span></div>
+        <div><b>2</b><span>países</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="filtros">
+    <div class="wrap">
+      <input class="buscador" id="buscar" type="search" placeholder="Busca una palabra: luna, maíz, río…" aria-label="Buscar cápsula">
+      <div class="chips" id="chips" role="group" aria-label="Filtrar por lengua"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="rejilla" id="rejilla"></div>
+    <p class="sin-resultados" id="vacio">No hay cápsulas con esa palabra. Prueba con otra o quita el filtro de lengua.</p>
+  </div>
+
+  <section class="bloque f-naranja" id="lenguas" data-ruta="techo">
+    <div class="wrap">
+      <span class="etiqueta">Las lenguas y sus comunidades</span>
+      <h2 class="titulo">Cada diccionario nace en una comunidad</h2>
+      <div class="lenguas" id="lista-lenguas"></div>
+      <p class="aviso">Todo el trabajo se hace desde las comunidades, con su validación y consentimiento, y de la mano de docentes de educación intercultural bilingüe y de las organizaciones indígenas.</p>
+    </div>
+  </section>
+</main>
+
+<!-- Ficha de cada cápsula: se abre con un enlace propio (canal-dac.html#palabra) -->
+<div class="ficha" id="ficha" role="dialog" aria-modal="true" aria-labelledby="ficha-palabra">
+  <div class="ficha-caja" id="ficha-caja">
+    <button class="cerrar" id="cerrar">Cerrar ✕</button>
+    <span class="etiqueta" id="ficha-lengua"></span>
+    <h2 id="ficha-palabra"></h2>
+    <p class="trad" id="ficha-trad"></p>
+    <div class="marco" id="ficha-video"></div>
+    <dl class="datos" id="ficha-datos"></dl>
+    <div class="acciones">
+      <button id="copiar">Copiar enlace</button>
+      <button id="anterior">← Anterior</button>
+      <button id="siguiente">Siguiente →</button>
+    </div>
+  </div>
+</div>
+
+<footer class="pie">
+  <div class="wrap">
+    <div>
+      <img src="assets/logo-vertical-blanco.png" alt="La Combi">
+      <small>la combi arte rodante · © 2026</small>
+    </div>
+    <ul class="redes">
+      <li><a href="https://www.instagram.com/lacombiarterodante">Instagram</a></li>
+      <li><a href="https://www.facebook.com/lacombi.arterodante">Facebook</a></li>
+      <li><a href="https://www.youtube.com/channel/UCHf-VamgDCu75dCzhq9Jtew">YouTube</a></li>
+      <li><a href="https://vimeo.com/user87088380">Vimeo</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="comun.js"></script>
+<script>
+/* ===== DATOS DEL CANAL =====
+   Para añadir una cápsula, copia una línea y cambia los datos.
+   video: enlace de YouTube o Vimeo (déjalo vacío "" si aún no está subido). */
+var LENGUAS={
+  'quechua':        {nombre:'Quechua',        comunidad:'Amantaní (Puno), Nación Q’ero (Cusco) y Punkupata (Ayacucho)', pais:'Perú',   familia:'Quechua'},
+  'yine':           {nombre:'Yine',           comunidad:'Miaría (Cusco)',            pais:'Perú',   familia:'Arawak'},
+  'matsigenka':     {nombre:'Matsigenka',     comunidad:'Nueva Luz (Cusco)',         pais:'Perú',   familia:'Arawak'},
+  'zoque-popoluca': {nombre:'Zoque-popoluca', comunidad:'Cabañas (Veracruz)',        pais:'México', familia:'Mixe-zoque'},
+  'yanesha':        {nombre:'Yánesha',        comunidad:'Tsachopén (Pasco)',         pais:'Perú',   familia:'Arawak'},
+  'shipibo-konibo': {nombre:'Shipibo-konibo', comunidad:'San Francisco (Ucayali)',   pais:'Perú',   familia:'Pano'},
+  'ese-eja':        {nombre:'Ese eja',        comunidad:'Infierno (Madre de Dios)',  pais:'Perú',   familia:'Tacana'},
+  'aymara':         {nombre:'Aymara',         comunidad:'Chua Chua (Puno)',          pais:'Perú',   familia:'Aru'},
+  'por-confirmar':  {nombre:'Lengua por confirmar', comunidad:'Por confirmar',       pais:'—',      familia:'—'}
+};
+var CAPSULAS=[
+  // palabra, traducción, lengua, duración, video
+  ['Cantuta','Cantuta','quechua','2:47',''],
+  ['Amantaní','Amantaní','quechua','2:47',''],
+  ['Eje Eje','Condenado','quechua','2:34',''],
+  ['Koopajom','Cabañas','zoque-popoluca','2:57',''],
+  ['Nii Chima','El perro del agua','zoque-popoluca','3:33',''],
+  ['Jem Mok','El maíz','zoque-popoluca','3:27',''],
+  ['Cachipa','Queso','quechua','2:44',''],
+  ['Kamaleki','Piripiri','yine','2:34',''],
+  ['Yine Yami','Gente del río grande','yine','2:30',''],
+  ['Shimeglak','Pescador','yine','2:29',''],
+  ['Komlu','Ají','yine','2:21',''],
+  ['Shiromega','Paloma','matsigenka','2:00',''],
+  ['Sekatsi','Yuca','matsigenka','1:59',''],
+  ['Inchato','Árbol','matsigenka','1:41',''],
+  ['Samani','Majaz','matsigenka','1:43',''],
+  ['Pesori','Bufeo','matsigenka','1:36',''],
+  ['Tisoni','Gallinazo','matsigenka','1:46',''],
+  ['Chakopi','Flecha','matsigenka','1:39',''],
+  ['Oshetoniro','Mono endemoniado','matsigenka','1:44',''],
+  ['Oshi','Hoja','matsigenka','1:58',''],
+  ['Ivenkiki','Piripiri','matsigenka','2:24',''],
+  ['Knoya','Motelo','yine','2:27',''],
+  ['Pishta','Pishta','yine','2:03',''],
+  ['Miaría','Miaría','yine','1:57',''],
+  ['Gimnunaji','Sangre de grado','yine','1:38',''],
+  ['Ksuru','Luna','yine','1:47',''],
+  ['Sergogneru','Cielo rojo','yine','1:46',''],
+  ['Papacuna','Papas','quechua','3:48',''],
+  ['Intiwan Puyowan','El sol y las nubes','quechua','3:58',''],
+  ['Llamawari vs. Paquchawari','Llamas vs. alpacas','quechua','4:02',''],
+  ['Sa’ona','Boa','ese-eja','3:14',''],
+  ['Baawaja','Río Tambopata','ese-eja','2:14',''],
+  ['Bicicletay Apawan','Mi bicicleta','quechua','3:13',''],
+  ['Ruqu','Sombrero','quechua','2:37',''],
+  ['Kashem vs. Shetamoets','Cushma de hombre vs. cushma de mujer','yanesha','2:51',''],
+  ['Akankareth','Pollo a la candela','yanesha','2:49',''],
+  ['Yompere','Yompere','por-confirmar','3:30',''],
+  ['Kene','Diseños kene','shipibo-konibo','2:58',''],
+  ['Betén','Mazamorra','shipibo-konibo','3:26',''],
+  ['Masha','Danza masha','shipibo-konibo','2:45','']
+];
+
+/* ===== LÓGICA ===== */
+var FONDOS=['f-naranja','f-magenta','f-azul'];
+function slug(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function etq(k){return k==='por-confirmar'?'Lengua por confirmar':'Lengua '+LENGUAS[k].nombre}
+function sinTilde(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
+var caps=CAPSULAS.map(function(c,i){return {palabra:c[0],trad:c[1],lengua:c[2],dur:c[3],video:c[4],id:slug(c[0]),fondo:FONDOS[i%3]}});
+var filtro='todas', texto='', visibles=caps;
+
+var cuenta={}; caps.forEach(function(c){cuenta[c.lengua]=(cuenta[c.lengua]||0)+1});
+document.getElementById('n-cap').textContent=caps.length;
+document.getElementById('n-len').textContent=Object.keys(cuenta).filter(function(k){return k!=='por-confirmar'}).length;
+
+// Chips de lengua
+var chips=document.getElementById('chips');
+function chip(val,label,n){var b=document.createElement('button');b.className='chip';b.dataset.val=val;b.setAttribute('aria-pressed',val===filtro);
+  b.innerHTML=label+(n?'<small>'+n+'</small>':'');b.onclick=function(){filtro=val;chips.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.val===val)});pinta()};chips.appendChild(b)}
+chip('todas','Todas',caps.length);
+Object.keys(LENGUAS).forEach(function(k){if(cuenta[k])chip(k,LENGUAS[k].nombre,cuenta[k])});
+
+// Rejilla
+var rej=document.getElementById('rejilla');
+function pinta(){
+  var q=sinTilde(texto.trim());
+  visibles=caps.filter(function(c){return (filtro==='todas'||c.lengua===filtro)&&(!q||sinTilde(c.palabra+' '+c.trad+' '+LENGUAS[c.lengua].nombre).indexOf(q)>-1)});
+  rej.innerHTML='';
+  visibles.forEach(function(c){
+    var b=document.createElement('button');b.className='capsula '+c.fondo;b.dataset.id=c.id;
+    b.innerHTML='<span class="etiqueta">'+etq(c.lengua)+'</span><b>'+c.palabra+'</b><span class="trad">'+c.trad+'</span><span class="pie-cap"><span>'+LENGUAS[c.lengua].pais+'</span><span>▶ '+c.dur+'</span></span>';
+    b.onclick=function(){location.hash=c.id};
+    rej.appendChild(b); letrasVivas(b.querySelector('b'));
+  });
+  document.getElementById('vacio').style.display=visibles.length?'none':'block';
+}
+document.getElementById('buscar').addEventListener('input',function(e){texto=e.target.value;pinta()});
+pinta();
+
+// Lista de lenguas
+var ll=document.getElementById('lista-lenguas');
+Object.keys(LENGUAS).forEach(function(k){if(k==='por-confirmar')return;var L=LENGUAS[k];
+  var d=document.createElement('div');d.className='lengua';
+  d.innerHTML='<h3>'+L.nombre+'</h3><span class="etiqueta">'+L.pais+' · familia '+L.familia+'</span><p>'+L.comunidad+'</p><p><b>'+(cuenta[k]||0)+'</b> cápsulas'+(cuenta[k]?'':' · próximamente')+'</p>';
+  ll.appendChild(d)});
+
+// Ficha
+var ficha=document.getElementById('ficha'), caja=document.getElementById('ficha-caja'), actual=null;
+function embed(url){
+  var m=url.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/); if(m)return 'https://www.youtube-nocookie.com/embed/'+m[1]+'?rel=0';
+  m=url.match(/vimeo\.com\/(?:video\/)?(\d+)/); if(m)return 'https://player.vimeo.com/video/'+m[1];
+  return null}
+function abre(id){
+  var c=caps.find(function(x){return x.id===id}); if(!c){cierra();return}
+  actual=c; var L=LENGUAS[c.lengua];
+  caja.className='ficha-caja '+c.fondo;
+  document.getElementById('ficha-lengua').textContent=etq(c.lengua);
+  var h=document.getElementById('ficha-palabra'); delete h.dataset.viva; h.textContent=c.palabra; letrasVivas(h);
+  document.getElementById('ficha-trad').textContent=c.trad;
+  var v=document.getElementById('ficha-video'), src=c.video&&embed(c.video);
+  v.innerHTML=src?'<iframe src="'+src+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>':'<p class="pendiente">Vídeo pendiente de enlazar.</p>';
+  document.getElementById('ficha-datos').innerHTML='<div><dt>Comunidad</dt><dd>'+L.comunidad+'</dd></div><div><dt>País</dt><dd>'+L.pais+'</dd></div><div><dt>Familia lingüística</dt><dd>'+L.familia+'</dd></div><div><dt>Duración</dt><dd>'+c.dur+'</dd></div>';
+  ficha.classList.add('abierta'); document.body.style.overflow='hidden'; document.getElementById('cerrar').focus();
+}
+function cierra(){ficha.classList.remove('abierta');document.body.style.overflow='';document.getElementById('ficha-video').innerHTML='';
+  if(actual){var b=rej.querySelector('[data-id="'+actual.id+'"]');actual=null;if(location.hash)history.replaceState(null,'',location.pathname+location.search);if(b)b.focus()}}
+function salta(d){if(!actual)return;var lista=visibles.length?visibles:caps,i=lista.indexOf(actual);if(i<0)i=0;location.hash=lista[(i+d+lista.length)%lista.length].id}
+function ruta(){var h=location.hash.slice(1);if(h&&caps.some(function(c){return c.id===h}))abre(h);else if(actual)cierra()}
+window.addEventListener('hashchange',ruta);
+document.getElementById('cerrar').onclick=cierra;
+document.getElementById('anterior').onclick=function(){salta(-1)};
+document.getElementById('siguiente').onclick=function(){salta(1)};
+ficha.addEventListener('click',function(e){if(e.target===ficha)cierra()});
+document.addEventListener('keydown',function(e){if(!actual)return;if(e.key==='Escape')cierra();if(e.key==='ArrowRight')salta(1);if(e.key==='ArrowLeft')salta(-1)});
+document.getElementById('copiar').onclick=function(){var b=this,url=location.href.split('#')[0]+'#'+actual.id;
+  try{navigator.clipboard.writeText(url).then(function(){b.textContent='¡Copiado!';setTimeout(function(){b.textContent='Copiar enlace'},1600)},function(){b.textContent=url})}catch(e){b.textContent=url}};
+</script>
+<script>ruta();</script>
+</body>
+</html>

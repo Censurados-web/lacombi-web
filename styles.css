@@ -1,0 +1,162 @@
+/* La Combi · arte rodante — estilos según el Manual de identidad v6 ("Hecho a trazo") */
+:root{
+  --naranja:#FF8200; --magenta:#FF0066; --azul:#3333FF; --negro:#000; --blanco:#fff;
+  --gris:#f2f2f2;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,system-ui,sans-serif;font-weight:300;color:#000;background:#fff;line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.etiqueta{font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.voz{font-family:Lora,Georgia,serif;font-style:italic;font-weight:400}
+.ondas{text-decoration:underline wavy var(--magenta);text-decoration-thickness:3px;text-underline-offset:.22em;text-decoration-skip-ink:none}
+.ondas.azul{text-decoration-color:var(--azul)}
+.ondas.negro{text-decoration-color:#000}
+.ondas.blanco{text-decoration-color:#fff}
+.viva span{display:inline-block}
+.viva .pal{white-space:nowrap}
+
+/* Cabecera */
+.cabecera{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
+.cabecera .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.cabecera .logo img{height:44px;width:auto}
+.menu{display:flex;gap:26px;list-style:none}
+.menu a{font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:6px 0}
+.menu a:hover,.menu a[aria-current]{text-decoration:underline wavy var(--naranja);text-decoration-thickness:2px;text-underline-offset:6px}
+.boton-menu{display:none;background:none;border:0;font:inherit;font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+@media (max-width:860px){
+  .boton-menu{display:block}
+  .menu{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 28px 24px;gap:6px;border-bottom:1px solid #eee}
+  .menu.abierto{display:flex}
+}
+
+/* La ruta */
+.ruta{position:absolute;pointer-events:none;overflow:visible}
+.ruta path{fill:none;stroke-linecap:round}
+@media (prefers-reduced-motion:no-preference){
+  .ruta .dibuja{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:dibuja 2.4s ease-out .2s forwards}
+}
+@keyframes dibuja{to{stroke-dashoffset:0}}
+
+/* Bloques de color: un fondo por bloque */
+.bloque{position:relative;overflow:hidden;padding:110px 0}
+.f-naranja{background:var(--naranja);color:#000}
+.f-magenta{background:var(--magenta);color:#000}
+.f-azul{background:var(--azul);color:#fff}
+.f-blanco{background:#fff;color:#000}
+.f-negro{background:#000;color:#fff}
+.bloque .wrap{position:relative;z-index:2}
+
+/* Portada */
+.portada{padding:120px 0 140px}
+.portada h1{font-size:clamp(46px,8vw,104px);max-width:11ch}
+.portada p{font-size:clamp(18px,2vw,22px);max-width:34ch;margin-top:30px}
+.portada .etiqueta{margin-bottom:22px;display:block}
+
+.titulo{font-size:clamp(34px,5vw,60px);max-width:16ch;margin:14px 0 26px}
+.texto{max-width:60ch;font-size:18px}
+.texto p+p{margin-top:14px}
+.dos{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end}
+@media (max-width:860px){.dos{grid-template-columns:1fr}}
+
+.cita{font-size:clamp(26px,3.4vw,40px);line-height:1.25}
+.cita small{display:block;font-family:Poppins,sans-serif;font-style:normal;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-top:16px;font-weight:500}
+
+/* Líneas de trabajo */
+.lineas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:50px}
+.linea{border:2px solid currentColor;border-radius:22px;padding:26px 22px 28px;position:relative}
+.linea svg{width:48px;height:48px;margin-bottom:18px}
+.linea h3{font-size:22px;margin-bottom:10px}
+.linea p{font-size:15.5px}
+
+/* Proyectos */
+.proyectos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:26px;margin-top:50px}
+.proyecto{border-radius:26px;padding:34px 32px 36px;display:flex;flex-direction:column;gap:12px;text-decoration:none;min-height:280px;transition:transform .5s ease}
+.proyecto:hover{transform:translateY(-4px)}
+.proyecto h3{font-size:28px}
+.proyecto .mas{margin-top:auto;font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+
+/* DAC destacado */
+.dac-logo{width:min(380px,80%);margin-bottom:30px}
+.palabras-dac{display:flex;flex-wrap:wrap;gap:12px 34px;margin:40px 0 46px}
+.palabras-dac a{text-decoration:none;display:block}
+.palabras-dac b{display:block;font-size:clamp(30px,4vw,48px);font-weight:700;line-height:1}
+.palabras-dac i{font-style:normal;font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+
+.boton{display:inline-block;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:16px 30px;border-radius:999px;border:2px solid currentColor;transition:background .3s,color .3s}
+.f-azul .boton:hover,.f-negro .boton:hover{background:#fff;color:#000}
+.f-blanco .boton:hover,.f-naranja .boton:hover,.f-magenta .boton:hover{background:#000;color:#fff}
+
+/* Aliados */
+.aliados{display:flex;flex-wrap:wrap;gap:14px 40px;margin-top:30px;font-weight:500;font-size:18px}
+
+/* Contacto */
+.sedes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:40px}
+.sede{background:#fff;color:#000;border-radius:22px;padding:30px}
+.sede h3{font-size:26px;margin-bottom:12px}
+.sede a{text-decoration:none;display:block;font-size:17px}
+.sede a:hover{text-decoration:underline}
+
+/* Pie */
+.pie{background:#000;color:#fff;padding:60px 0 50px}
+.pie .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px}
+.pie img{height:70px;width:auto}
+.redes{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+.redes a{font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.redes a:hover{text-decoration:underline wavy var(--naranja)}
+.pie small{display:block;margin-top:14px;font-size:13px;opacity:.75}
+
+/* ======= CANAL DAC ======= */
+.canal-cab{padding:90px 0 70px}
+.canal-cab h1{font-size:clamp(44px,7vw,88px)}
+.canal-cab p{max-width:52ch;font-size:19px;margin-top:22px}
+.cifras{display:flex;gap:44px;margin-top:40px;flex-wrap:wrap}
+.cifras b{display:block;font-size:44px;line-height:1}
+.cifras span{font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+
+.filtros{position:sticky;top:76px;z-index:20;background:#fff;border-bottom:1px solid #eee;padding:18px 0}
+.filtros .wrap{display:flex;flex-direction:column;gap:14px}
+.buscador{width:100%;max-width:520px;font:inherit;font-size:16px;padding:12px 20px;border:2px solid #000;border-radius:999px;outline:none}
+.buscador:focus{border-color:var(--azul)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-weight:500;font-size:12.5px;letter-spacing:.06em;padding:7px 15px;border:2px solid #000;background:#fff;border-radius:999px;cursor:pointer}
+.chip[aria-pressed=true]{background:#000;color:#fff}
+.chip small{opacity:.6;margin-left:4px}
+
+.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;padding:44px 0 90px}
+.capsula{border-radius:22px;padding:24px 22px 22px;min-height:230px;display:flex;flex-direction:column;cursor:pointer;border:0;text-align:left;font:inherit;transition:transform .4s ease}
+.capsula:hover,.capsula:focus-visible{transform:translateY(-4px)}
+.capsula:focus-visible{outline:3px solid #000;outline-offset:3px}
+.capsula .etiqueta{font-size:10.5px}
+.capsula b{font-size:clamp(24px,2.4vw,31px);line-height:1.08;margin-top:auto;font-weight:700}
+.capsula .trad{font-size:15px;margin-top:6px}
+.capsula .pie-cap{display:flex;justify-content:space-between;margin-top:16px;font-size:12px;font-weight:500;letter-spacing:.08em}
+.sin-resultados{padding:60px 0;font-size:18px;display:none}
+
+/* Ficha de cápsula */
+.ficha{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.55)}
+.ficha.abierta{display:flex}
+.ficha-caja{width:min(940px,100%);max-height:calc(100vh - 40px);overflow:auto;border-radius:26px;padding:34px 34px 38px;position:relative}
+.cerrar{position:absolute;top:18px;right:20px;background:none;border:2px solid currentColor;color:inherit;border-radius:999px;font:inherit;font-weight:600;font-size:12px;letter-spacing:.12em;padding:7px 14px;cursor:pointer}
+.ficha h2{font-size:clamp(40px,6vw,72px);margin:6px 0 4px}
+.ficha .trad{font-size:20px;margin-bottom:24px}
+.marco{border:3px solid currentColor;outline:2px solid currentColor;outline-offset:5px;border-radius:5%/8%;aspect-ratio:16/9;width:min(calc(100% - 12px),calc(44vh*16/9));margin-left:auto!important;margin-right:auto!important;overflow:hidden;background:#000;margin:10px 6px 22px;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center}
+.marco iframe{width:100%;height:100%;border:0}
+.marco .pendiente{padding:20px;font-size:15px;max-width:40ch}
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px 26px;margin-top:6px}
+.datos dt{font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.datos dd{font-size:17px;font-weight:500}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.acciones button,.acciones a{font:inherit;font-weight:600;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;padding:11px 20px;border-radius:999px;border:2px solid currentColor;background:none;color:inherit;cursor:pointer;text-decoration:none}
+
+/* Lenguas */
+.lenguas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px}
+.lengua{background:#fff;color:#000;border-radius:22px;padding:26px}
+.lengua h3{font-size:28px}
+.lengua .etiqueta{display:block;margin:2px 0 14px;font-size:11px}
+.lengua p{font-size:15px}
+.aviso{font-size:14px;margin-top:30px;opacity:.85;max-width:70ch}

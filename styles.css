@@ -287,3 +287,4 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .prensa a:hover{text-decoration:underline wavy #000;text-underline-offset:4px}
 .cartel{width:100%;border-radius:18px;align-self:center}
 .ficha-p img.contener{object-fit:contain;background:#EFB81C}
+.fichas.cuatro{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}

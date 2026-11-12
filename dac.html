@@ -165,15 +165,15 @@
    Para añadir una cápsula, copia una línea y cambia los datos.
    video: enlace de YouTube o Vimeo (déjalo vacío "" si aún no está subido). */
 var LENGUAS={
-  'quechua':        {nombre:'Quechua', texto:'Lengua andina, la más hablada del Perú, con unos 3,3 millones de hablantes y variedades en siete países de Sudamérica.',        comunidad:'Isla Amantaní (Puno), Quico, Nación Q’ero (Cusco) y Punkupata (Ayacucho)', pais:'Perú',   familia:'Quechua'},
-  'yine':           {nombre:'Yine', texto:'Lengua amazónica de la familia arawak, hablada en Loreto, Ucayali, Cusco y Madre de Dios, y en Acre (Brasil) por el pueblo manchineri.',           comunidad:'Miaría (Cusco)',            pais:'Perú',   familia:'Arawak'},
-  'matsigenka':     {nombre:'Matsigenka', texto:'Lengua amazónica de la familia arawak, vital, hablada en Cusco, Madre de Dios, Ayacucho y Lima.',     comunidad:'Nueva Luz (Cusco)',         pais:'Perú',   familia:'Arawak'},
-  'zoque-popoluca': {nombre:'Zoque-popoluca', texto:'Lengua de la familia mixe-zoque, hablada en el sur de Veracruz. México tiene 68 lenguas indígenas.', comunidad:'Cabañas (Veracruz)',        pais:'México', familia:'Mixe-zoque'},
-  'yanesha':        {nombre:'Yánesha', texto:'Lengua amazónica de la familia arawak, hablada en las cuencas del Palcazú y el Pachitea, entre Huánuco, Pasco y Junín.',        comunidad:'Tsachopén (Pasco)',         pais:'Perú',   familia:'Arawak'},
-  'shipibo-konibo': {nombre:'Shipibo-konibo', texto:'Lengua amazónica de la familia pano, hablada en las cuencas del Ucayali, el Pisqui y el Madre de Dios.', comunidad:'San Francisco (Ucayali)',   pais:'Perú',   familia:'Pano'},
-  'ese-eja':        {nombre:'Ese eja', texto:'Lengua amazónica de la familia tacana, entre Perú y Bolivia. La UNESCO la considera seriamente en peligro.',        comunidad:'Infierno (Madre de Dios)',  pais:'Perú',   familia:'Tacana'},
-  'aymara':         {nombre:'Aymara', texto:'Lengua andina de la familia aru, vital, con unos 443.000 hablantes en Perú, Bolivia, Argentina y Chile.',         comunidad:'Chua Chua (Puno)',          pais:'Perú',   familia:'Aru'},
-  'por-confirmar':  {nombre:'Lengua por confirmar', comunidad:'Por confirmar',       pais:'—',      familia:'—'}
+  'quechua':        {nombre:'Quechua', color:'f-naranja', texto:'Lengua andina, la más hablada del Perú, con unos 3,3 millones de hablantes y variedades en siete países de Sudamérica.',        comunidad:'Isla Amantaní (Puno), Quico, Nación Q’ero (Cusco) y Punkupata (Ayacucho)', pais:'Perú',   familia:'Quechua'},
+  'yine':           {nombre:'Yine', color:'f-azul', texto:'Lengua amazónica de la familia arawak, hablada en Loreto, Ucayali, Cusco y Madre de Dios, y en Acre (Brasil) por el pueblo manchineri.',           comunidad:'Miaría (Cusco)',            pais:'Perú',   familia:'Arawak'},
+  'matsigenka':     {nombre:'Matsigenka', color:'f-azul-claro', texto:'Lengua amazónica de la familia arawak, vital, hablada en Cusco, Madre de Dios, Ayacucho y Lima.',     comunidad:'Nueva Luz (Cusco)',         pais:'Perú',   familia:'Arawak'},
+  'zoque-popoluca': {nombre:'Zoque-popoluca', color:'f-blanco-borde', texto:'Lengua de la familia mixe-zoque, hablada en el sur de Veracruz. México tiene 68 lenguas indígenas.', comunidad:'Cabañas (Veracruz)',        pais:'México', familia:'Mixe-zoque'},
+  'yanesha':        {nombre:'Yánesha', color:'f-magenta', texto:'Lengua amazónica de la familia arawak, hablada en las cuencas del Palcazú y el Pachitea, entre Huánuco, Pasco y Junín.',        comunidad:'Tsachopén (Pasco)',         pais:'Perú',   familia:'Arawak'},
+  'shipibo-konibo': {nombre:'Shipibo-konibo', color:'f-magenta-claro', texto:'Lengua amazónica de la familia pano, hablada en las cuencas del Ucayali, el Pisqui y el Madre de Dios.', comunidad:'San Francisco (Ucayali)',   pais:'Perú',   familia:'Pano'},
+  'ese-eja':        {nombre:'Ese eja', color:'f-negro', texto:'Lengua amazónica de la familia tacana, entre Perú y Bolivia. La UNESCO la considera seriamente en peligro.',        comunidad:'Infierno (Madre de Dios)',  pais:'Perú',   familia:'Tacana'},
+  'aymara':         {nombre:'Aymara', color:'f-naranja-claro', texto:'Lengua andina de la familia aru, vital, con unos 443.000 hablantes en Perú, Bolivia, Argentina y Chile.',         comunidad:'Chua Chua (Puno)',          pais:'Perú',   familia:'Aru'},
+  'por-confirmar':  {nombre:'Lengua por confirmar', color:'f-blanco-borde', comunidad:'Por confirmar',       pais:'—',      familia:'—'}
 };
 var CAPSULAS=[
   // p: palabra · t: traducción · l: lengua · d: duración · v: vídeo (Vimeo o YouTube) · a: año · s: sinopsis · c: comunidad (si es distinta de la de la lengua)
@@ -227,7 +227,7 @@ var FONDOS=['f-naranja','f-magenta','f-azul'];
 function slug(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function etq(k){return k==='por-confirmar'?'Lengua por confirmar':'Lengua '+LENGUAS[k].nombre}
 function sinTilde(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
-var caps=CAPSULAS.map(function(c,i){return {palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',anio:c.a,sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:FONDOS[i%3]}});
+var caps=CAPSULAS.map(function(c,i){return {palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',anio:c.a,sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:LENGUAS[c.l].color}});
 var filtro='todas', texto='', visibles=caps;
 
 var cuenta={}; caps.forEach(function(c){cuenta[c.lengua]=(cuenta[c.lengua]||0)+1});
@@ -237,7 +237,7 @@ document.getElementById('n-len').textContent=Object.keys(cuenta).filter(function
 // Chips de lengua
 var chips=document.getElementById('chips');
 function chip(val,label,n){var b=document.createElement('button');b.className='chip';b.dataset.val=val;b.setAttribute('aria-pressed',val===filtro);
-  b.innerHTML=label+(n?'<small>'+n+'</small>':'');b.onclick=function(){filtro=val;chips.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.val===val)});pinta()};chips.appendChild(b)}
+  b.innerHTML=(val!=='todas'?'<i class="punto '+LENGUAS[val].color+'"></i>':'')+label+(n?'<small>'+n+'</small>':'');b.onclick=function(){filtro=val;chips.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.val===val)});pinta()};chips.appendChild(b)}
 chip('todas','Todas',caps.length);
 Object.keys(LENGUAS).forEach(function(k){if(cuenta[k])chip(k,LENGUAS[k].nombre,cuenta[k])});
 
@@ -261,7 +261,7 @@ pinta();
 // Lista de lenguas
 var ll=document.getElementById('lista-lenguas');
 Object.keys(LENGUAS).forEach(function(k){if(k==='por-confirmar')return;var L=LENGUAS[k];
-  var d=document.createElement('div');d.className='lengua';
+  var d=document.createElement('div');d.className='lengua';d.style.borderTop='14px solid';d.classList.add('borde-'+L.color);
   d.innerHTML='<h3>'+L.nombre+'</h3><span class="etiqueta">'+L.pais+' · familia '+L.familia+'</span><p>'+L.comunidad+'</p><p style="margin-bottom:10px">'+(L.texto||'')+'</p><p><b>'+(cuenta[k]||0)+'</b> cápsulas'+(cuenta[k]?'':' · próximamente')+'</p>';
   ll.appendChild(d)});
 

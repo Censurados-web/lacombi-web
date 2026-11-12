@@ -239,3 +239,18 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .lista-cortos{display:flex;flex-wrap:wrap;gap:14px 36px;font-weight:700;font-size:clamp(24px,3vw,38px);line-height:1.15}
 .lista-cortos span:nth-child(3n+1){text-decoration:underline wavy var(--naranja);text-decoration-thickness:3px;text-underline-offset:.2em}
 .chips a.chip{text-decoration:none}
+
+/* Canal DAC: un color por lengua (paleta del manual + tonos claros) */
+.f-naranja-claro{background:#FFC27F;color:#000}
+.f-azul-claro{background:#A9A9FF;color:#000}
+.f-magenta-claro{background:#FF99BF;color:#000}
+.f-blanco-borde{background:#fff;color:#000;box-shadow:inset 0 0 0 2px #000}
+.punto{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:7px;vertical-align:-1px}
+.punto.f-blanco-borde{box-shadow:inset 0 0 0 2px #000}
+.chip[aria-pressed=true] .punto.f-negro{box-shadow:0 0 0 2px #fff}
+.borde-f-naranja{border-top-color:#FF8200!important}.borde-f-naranja-claro{border-top-color:#FFC27F!important}
+.borde-f-azul{border-top-color:#3333FF!important}.borde-f-azul-claro{border-top-color:#A9A9FF!important}
+.borde-f-magenta{border-top-color:#FF0066!important}.borde-f-magenta-claro{border-top-color:#FF99BF!important}
+.borde-f-negro{border-top-color:#000!important}.borde-f-blanco-borde{border-top-color:#000!important}
+.f-naranja .lengua,.lengua{border-top-style:solid}
+.ficha-caja.f-blanco-borde{box-shadow:none}

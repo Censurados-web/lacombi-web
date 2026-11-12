@@ -19,7 +19,7 @@
     <ul class="menu" id="menu">
       <li><a href="index.html#quienes">Quiénes somos</a></li>
       <li><a href="index.html#que">Qué hacemos</a></li>
-      <li><a href="index.html#experiencias">Proyectos</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
       <li><a href="dac.html" aria-current="page">DAC</a></li>
       <li><a href="index.html#contacto">Contacto</a></li>
     </ul>
@@ -165,11 +165,11 @@
    Para añadir una cápsula, copia una línea y cambia los datos.
    video: enlace de YouTube o Vimeo (déjalo vacío "" si aún no está subido). */
 var LENGUAS={
-  'quechua':        {nombre:'Quechua', texto:'Lengua andina, la más hablada del Perú, con unos 3,3 millones de hablantes y variedades en siete países de Sudamérica.',        comunidad:'Amantaní (Puno), Quico, Nación Q’ero (Cusco) y Punkupata (Ayacucho)', pais:'Perú',   familia:'Quechua'},
-  'yine':           {nombre:'Yine', texto:'Lengua amazónica de la familia arawak, hablada en el Bajo Urubamba.',           comunidad:'Miaría (Cusco)',            pais:'Perú',   familia:'Arawak'},
+  'quechua':        {nombre:'Quechua', texto:'Lengua andina, la más hablada del Perú, con unos 3,3 millones de hablantes y variedades en siete países de Sudamérica.',        comunidad:'Isla Amantaní (Puno), Quico, Nación Q’ero (Cusco) y Punkupata (Ayacucho)', pais:'Perú',   familia:'Quechua'},
+  'yine':           {nombre:'Yine', texto:'Lengua amazónica de la familia arawak, hablada en Loreto, Ucayali, Cusco y Madre de Dios, y en Acre (Brasil) por el pueblo manchineri.',           comunidad:'Miaría (Cusco)',            pais:'Perú',   familia:'Arawak'},
   'matsigenka':     {nombre:'Matsigenka', texto:'Lengua amazónica de la familia arawak, vital, hablada en Cusco, Madre de Dios, Ayacucho y Lima.',     comunidad:'Nueva Luz (Cusco)',         pais:'Perú',   familia:'Arawak'},
   'zoque-popoluca': {nombre:'Zoque-popoluca', texto:'Lengua de la familia mixe-zoque, hablada en el sur de Veracruz. México tiene 68 lenguas indígenas.', comunidad:'Cabañas (Veracruz)',        pais:'México', familia:'Mixe-zoque'},
-  'yanesha':        {nombre:'Yánesha', texto:'Lengua amazónica de la familia arawak, hablada en la selva central del Perú.',        comunidad:'Tsachopén (Pasco)',         pais:'Perú',   familia:'Arawak'},
+  'yanesha':        {nombre:'Yánesha', texto:'Lengua amazónica de la familia arawak, hablada en las cuencas del Palcazú y el Pachitea, entre Huánuco, Pasco y Junín.',        comunidad:'Tsachopén (Pasco)',         pais:'Perú',   familia:'Arawak'},
   'shipibo-konibo': {nombre:'Shipibo-konibo', texto:'Lengua amazónica de la familia pano, hablada en las cuencas del Ucayali, el Pisqui y el Madre de Dios.', comunidad:'San Francisco (Ucayali)',   pais:'Perú',   familia:'Pano'},
   'ese-eja':        {nombre:'Ese eja', texto:'Lengua amazónica de la familia tacana, entre Perú y Bolivia. La UNESCO la considera seriamente en peligro.',        comunidad:'Infierno (Madre de Dios)',  pais:'Perú',   familia:'Tacana'},
   'aymara':         {nombre:'Aymara', texto:'Lengua andina de la familia aru, vital, con unos 443.000 hablantes en Perú, Bolivia, Argentina y Chile.',         comunidad:'Chua Chua (Puno)',          pais:'Perú',   familia:'Aru'},
@@ -177,13 +177,13 @@ var LENGUAS={
 };
 var CAPSULAS=[
   // p: palabra · t: traducción · l: lengua · d: duración · v: vídeo (Vimeo o YouTube) · a: año · s: sinopsis · c: comunidad (si es distinta de la de la lengua)
-  {"p": "Cantuta", "t": "Cantuta", "l": "quechua", "d": "2:47", "c": "Amantaní (Puno)"},
-  {"p": "Amantaní", "t": "Amantaní", "l": "quechua", "d": "2:47", "c": "Amantaní (Puno)"},
-  {"p": "Eje Eje", "t": "Condenado", "l": "quechua", "d": "2:34", "c": "Amantaní (Puno)"},
-  {"p": "Koopajom", "t": "Cabañas", "l": "zoque-popoluca", "d": "2:57"},
-  {"p": "Nii Chima", "t": "El perro del agua", "l": "zoque-popoluca", "d": "3:33"},
-  {"p": "Jem Mok", "t": "El maíz", "l": "zoque-popoluca", "d": "3:27"},
-  {"p": "Cachipa", "t": "Queso", "l": "quechua", "d": "2:44"},
+  {"p": "Cantuta", "t": "Cantuta", "l": "quechua", "d": "2:47", "c": "Amantaní (Puno)", "s": "La cantuta, la flor sagrada de los incas, crece en Amantaní. Con ella se hacen collares y se decoran los bordados."},
+  {"p": "Amantaní", "t": "Amantaní", "l": "quechua", "d": "2:47", "c": "Amantaní (Puno)", "s": "La isla de Amantaní, en el lago Titicaca, está dividida en cuatro suyos. Cada año los cultivos rotan de uno a otro, en el sentido de las agujas del reloj."},
+  {"p": "Eje Eje", "t": "Condenado", "l": "quechua", "d": "2:34", "c": "Amantaní (Puno)", "s": "Cuenta la leyenda que de noche, en Titijom, sale del agua un condenado. Por eso las niñas y los niños deben volver pronto a casa."},
+  {"p": "Koopajom", "t": "Cabañas", "l": "zoque-popoluca", "d": "2:57", "s": "Las niñas y los niños de Cabañas están orgullosos de hablar popoluca, y sus abuelas y abuelos les ayudan a aprender la lengua."},
+  {"p": "Nii Chima", "t": "El perro del agua", "l": "zoque-popoluca", "d": "3:33", "s": "Seres misteriosos del agua, de ojos rojos y con una mano al final de la cola, que cuidan de la salud de los peces."},
+  {"p": "Jem Mok", "t": "El maíz", "l": "zoque-popoluca", "d": "3:27", "s": "México es tierra de maíz. En Cabañas se cultiva maíz blanco, amarillo y negro, y con él se preparan los platos de la comunidad."},
+  {"p": "Cachipa", "t": "Queso", "l": "quechua", "d": "2:44", "s": "El queso fresco y salado de Punkupata se hace con leche de vaca —aunque dicen que el de leche de llama es mejor— y cuajo.", "c": "Punkupata (Ayacucho)"},
   {"p": "Kamaleki", "t": "Piripiri", "l": "yine", "d": "2:34", "v": "https://vimeo.com/362922919", "a": 2017, "s": "Evita los embarazos y quita el «mal aire». El bosque ofrece decenas de tipos de piripiri que curan múltiples dolencias, y los Yine de Miaría conocen cómo y cuándo usar cada uno de ellos."},
   {"p": "Yine Yami", "t": "Gente del río grande", "l": "yine", "d": "2:30", "v": "https://vimeo.com/362924966", "a": 2017, "s": "Otros grupos étnicos viven cerca de las cabeceras de las quebradas, pero los Yine Yami lo hacen cerca de los ríos grandes, cuyas aguas fueron traídas por una gran anaconda para salvarlos de la hambruna."},
   {"p": "Shimeglak", "t": "Pescador", "l": "yine", "d": "2:29", "v": "https://vimeo.com/362922180", "a": 2017, "s": "Los Yine siempre han sido buenos pescadores. Conocen todos los peces del Urubamba: los que pueden consumir, como el boquichico, la doncella o la carachama, y los que pueden ser peligrosos, como la piraña, la anguila eléctrica y la raya."},
@@ -212,11 +212,11 @@ var CAPSULAS=[
   {"p": "Wiñay Marka", "t": "Lago Titicaca", "l": "aymara", "d": "2:49", "v": "https://vimeo.com/383956318", "a": 2018, "s": "El lago navegable más alto del mundo, el Titicaca, es conocido por los Aymara como Wiñay Marka. De sus aguas, los pobladores sacan los peces para comer; en sus orillas viven animales únicos, como las ranas gigantes; y en sus profundidades descansan los restos de los temidos pumas grises."},
   {"p": "Sa’ona", "t": "Boa", "l": "ese-eja", "d": "3:14", "v": "https://vimeo.com/401199382", "a": 2018, "s": "Una gran boa se llevó a una bella joven que lavaba ropa en la orilla del río. Su madre, asustada por lo que podía haberle pasado, fue a buscarla hasta el fondo de la corriente, y lo que allí encontró fue un mundo diferente en el que nada era lo que parecía. Ni el maíz, ni el perro, ni —por supuesto— la boa."},
   {"p": "Baawaja", "t": "Río Tambopata", "l": "ese-eja", "d": "2:14", "v": "https://vimeo.com/402295503", "a": 2018, "s": "El río Tambopata, en Madre de Dios, es conocido por los Ese Eja como Baawaja, por el sonido que hacen sus aguas en su parte alta, cuando discurren entre pequeñas piedras que dan lugar a numerosas cascadas. En él habitan peces, monos, loros y sirenas, que atraen con sus cantos a los hombres en las noches de luna llena."},
-  {"p": "Bicicletay Apawan", "t": "Mi bicicleta", "l": "quechua", "d": "3:13"},
-  {"p": "Ruqu", "t": "Sombrero", "l": "quechua", "d": "2:37"},
-  {"p": "Kashem vs. Shetamoets", "t": "Cushma de hombre vs. cushma de mujer", "l": "yanesha", "d": "2:51"},
-  {"p": "Akankareth", "t": "Pollo a la candela", "l": "yanesha", "d": "2:49"},
-  {"p": "Yompere", "t": "Yompere", "l": "por-confirmar", "d": "3:30"},
+  {"p": "Bicicletay Apawan", "t": "Mi bicicleta", "l": "quechua", "d": "3:13", "s": "Las niñas de Punkupata quieren bicicletas propias, y no las incómodas de los chicos, para ir a la escuela, echar carreras y ayudar a su familia.", "c": "Punkupata (Ayacucho)"},
+  {"p": "Ruqu", "t": "Sombrero", "l": "quechua", "d": "2:37", "s": "Los sombreros se hacen con fibra de alpaca o lana de oveja y se adornan con cintas de colores, flores y lentejuelas. A más de 3.800 metros, protegen del sol.", "c": "Punkupata (Ayacucho)"},
+  {"p": "Kashem vs. Shetamoets", "t": "Cushma de hombre vs. cushma de mujer", "l": "yanesha", "d": "2:51", "s": "La cushma es la túnica tradicional yánesha: la de hombre, kashem, lleva cuello en V; la de mujer, shetamoets, cuello redondo. Sus diseños y colores tienen significado."},
+  {"p": "Akankareth", "t": "Pollo a la candela", "l": "yanesha", "d": "2:49", "s": "El pollo a la candela es un plato tradicional de Tsachopén: se cocina con leña de pacay para que dure mucho tiempo y se come sobre todo en las fiestas, a veces con carne de monte."},
+  {"p": "Yompere", "t": "Yompere", "l": "yanesha", "d": "3:30", "s": "Los hermanos Yompor Yompere y Yompor Ror: el primero quedó convertido en piedra. Cada año, a mediados de noviembre, se celebra una fiesta en la que los peregrinos tocan las piedras."},
   {"p": "Kene", "t": "Diseños kene", "l": "shipibo-konibo", "d": "2:58", "v": "https://vimeo.com/357015439", "a": 2019, "s": "El kene es un arte femenino realizado por las mujeres Shipibo-Konibo. Ellas, a través de visiones que provienen de plantas sagradas, observan distintos patrones geométricos que luego pintan, tejen y bordan en los cuerpos, las telas y las tinajas."},
   {"p": "Betén", "t": "Mazamorra", "l": "shipibo-konibo", "d": "3:26", "v": "https://vimeo.com/357591294", "a": 2019, "s": "¿Cuál es el plato hecho con plátano verde y pescado que tanto gusta a los pobladores de Ucayali? Los niños y niñas de la comunidad Shipibo-Konibo de San Francisco de Yarinacocha nos cuentan todos los secretos para preparar el mejor betén."},
   {"p": "Masha", "t": "Danza masha", "l": "shipibo-konibo", "d": "2:45", "v": "https://vimeo.com/357016853", "a": 2019, "s": "Los Shipibo-Konibo son un pueblo que baila. Y cuando quieren rendir homenaje a la yakumama lo hacen de forma circular, en ceremonias colectivas en las que también beben masato. Todos danzan descalzos esbozando dibujos en el suelo."}

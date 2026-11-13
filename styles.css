@@ -300,3 +300,20 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .redes-contacto{list-style:none;display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .redes-contacto a{display:inline-block;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:12px 22px;border:2px solid #000;border-radius:999px;background:#fff}
 .redes-contacto a:hover{background:#000;color:#fff}
+
+/* Los DAC en… */
+.sub-medios{font-size:26px;margin:50px 0 20px;padding-bottom:10px;border-bottom:2px solid #000}
+.dac-medios{columns:2 420px;column-gap:50px}
+.dac-medios-grupo{break-inside:avoid;margin-bottom:34px}
+.dac-medios-grupo h3{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:10px;color:var(--azul)}
+.dac-medios-grupo ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.dac-medios-grupo a{text-decoration:none;display:block;font-size:15.5px;line-height:1.35;font-weight:500}
+.dac-medios-grupo a span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin-bottom:1px}
+.dac-medios-grupo a:hover{text-decoration:underline wavy var(--magenta);text-underline-offset:4px}
+.dos-col{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+@media (max-width:860px){.dos-col{grid-template-columns:1fr;gap:0}}
+.lista-medios{list-style:none;display:flex;flex-direction:column;gap:22px}
+.lista-medios b{display:block;font-size:18px;margin-top:2px}
+.lista-medios p{font-size:15.5px}
+.lista-medios .enlaces{margin-top:4px;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.lista-medios .enlaces a{text-decoration:none;border-bottom:2px solid var(--naranja)}

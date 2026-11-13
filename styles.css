@@ -327,3 +327,7 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .censurados-caja .titulo{margin:12px auto 22px;max-width:none}
 .censurados-caja .boton:hover{background:#fff;color:#000}
 @media (max-width:760px){.censurados-banda{padding:48px 0}}
+
+.fichas-june a{color:inherit;text-decoration:none;border-bottom:2px solid transparent;transition:border-color .3s}
+.fichas-june a:hover{border-color:currentColor}
+.fichas-june a span{font-size:13px;font-weight:600;opacity:.8;white-space:nowrap}

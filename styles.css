@@ -318,12 +318,12 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .lista-medios .enlaces{margin-top:4px;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 .lista-medios .enlaces a{text-decoration:none;border-bottom:2px solid var(--naranja)}
 
-/* Censurados con foto */
-.censurados-banda{position:relative;min-height:560px;display:flex;align-items:center;background:#000;color:#fff;overflow:hidden}
-.censurados-banda>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left 22%}
-.censurados-banda::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.85) 68%)}
-.censurados-banda .wrap{position:relative;z-index:2;width:100%;display:flex;justify-content:flex-end}
-.censurados-caja{max-width:440px}
-.censurados-caja .titulo{margin-bottom:28px}
+/* Censurados con foto de fondo */
+.censurados-banda{position:relative;min-height:0;padding:64px 0;display:flex;align-items:center;background:#000;color:#fff;overflow:hidden;text-align:center}
+.censurados-banda>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.censurados-banda::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62)}
+.censurados-banda .wrap{position:relative;z-index:2;width:100%;display:flex;justify-content:center}
+.censurados-caja{max-width:900px}
+.censurados-caja .titulo{margin:12px auto 22px;max-width:none}
 .censurados-caja .boton:hover{background:#fff;color:#000}
-@media (max-width:760px){.censurados-banda{min-height:520px;align-items:flex-end;padding-bottom:50px}.censurados-banda::after{background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.9) 70%)}.censurados-banda .wrap{justify-content:flex-start}}
+@media (max-width:760px){.censurados-banda{padding:48px 0}}

@@ -335,3 +335,9 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 @media (max-width:860px){#censurados{padding-bottom:140px}}
 .canal-cab[data-ruta]{padding-bottom:130px}
 @media (max-width:760px){.canal-cab[data-ruta]{padding-bottom:110px}}
+.chip.c-magenta{background:var(--magenta);border-color:var(--magenta);color:#000}
+.chip.c-naranja{background:var(--naranja);border-color:var(--naranja);color:#000}
+.chip.c-negro{background:#000;border-color:#000;color:#fff}
+.chip.c-azul{background:var(--azul);border-color:var(--azul);color:#fff}
+.chips a.chip[class*=" c-"]{padding:10px 18px;font-weight:600;transition:transform .3s,box-shadow .3s}
+.chips a.chip[class*=" c-"]:hover{transform:translateY(-3px);box-shadow:0 6px 0 #000}

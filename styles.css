@@ -123,7 +123,7 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .buscador{width:100%;max-width:520px;font:inherit;font-size:16px;padding:12px 20px;border:2px solid #000;border-radius:999px;outline:none}
 .buscador:focus{border-color:var(--azul)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font:inherit;font-weight:500;font-size:12.5px;letter-spacing:.06em;padding:7px 15px;border:2px solid #000;background:#fff;border-radius:999px;cursor:pointer}
+.chip{font:inherit;color:#000;font-weight:500;font-size:12.5px;letter-spacing:.06em;padding:7px 15px;border:2px solid #000;background:#fff;border-radius:999px;cursor:pointer}
 .chip[aria-pressed=true]{background:#000;color:#fff}
 .chip small{opacity:.6;margin-left:4px}
 
@@ -333,3 +333,5 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .fichas-june a span{font-size:13px;font-weight:600;opacity:.8;white-space:nowrap}
 #censurados{padding-bottom:170px}
 @media (max-width:860px){#censurados{padding-bottom:140px}}
+.canal-cab[data-ruta]{padding-bottom:130px}
+@media (max-width:760px){.canal-cab[data-ruta]{padding-bottom:110px}}

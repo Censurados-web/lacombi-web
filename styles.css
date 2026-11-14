@@ -400,3 +400,4 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .fichas.fichas-4{grid-template-columns:repeat(4,1fr)}
 @media (max-width:1100px){.fichas.fichas-4{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.fichas.fichas-4{grid-template-columns:1fr}}
+.video-destacado{width:100%;aspect-ratio:16/9;border-radius:18px;background:#000;display:block}

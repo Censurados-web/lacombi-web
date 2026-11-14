@@ -239,7 +239,7 @@ var FONDOS=['f-naranja','f-magenta','f-azul'];
 function slug(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function etq(k){return k==='por-confirmar'?'Lengua por confirmar':'Lengua '+LENGUAS[k].nombre}
 function sinTilde(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
-var caps=CAPSULAS.map(function(c,i){return {palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',anio:c.a,sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:LENGUAS[c.l].color}});
+var caps=CAPSULAS.map(function(c,i){return {web:c.w||'',palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',anio:c.a,sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:LENGUAS[c.l].color}});
 var filtro='todas', texto='', visibles=caps;
 
 var cuenta={}; caps.forEach(function(c){cuenta[c.lengua]=(cuenta[c.lengua]||0)+1});
@@ -293,7 +293,7 @@ function abre(id){
   var h=document.getElementById('ficha-palabra'); delete h.dataset.viva; h.textContent=c.palabra; letrasVivas(h);
   document.getElementById('ficha-trad').textContent=c.trad;
   var v=document.getElementById('ficha-video'), src=c.video&&embed(c.video);
-  v.innerHTML=/\.mp4$/i.test(c.video)?'<video src="'+c.video+'" poster="'+c.video.replace(/\.mp4$/i,'.jpg')+'" controls playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"></video>':src?'<iframe src="'+src+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>':'<p class="pendiente">Vídeo pendiente de enlazar.</p>';
+  if(c.web){v.innerHTML='<video poster="'+c.web.replace(/\.mp4$/i,'.jpg')+'" controls playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"><source src="'+c.web+'" type="video/mp4"></video>';v.querySelector('source').addEventListener('error',function(){if(src)v.innerHTML='<iframe src="'+src+'" allow="autoplay; fullscreen" allowfullscreen></iframe>'});}else v.innerHTML=/\.mp4$/i.test(c.video)?'<video src="'+c.video+'" poster="'+c.video.replace(/\.mp4$/i,'.jpg')+'" controls playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"></video>':src?'<iframe src="'+src+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>':'<p class="pendiente">Vídeo pendiente de enlazar.</p>';
   document.getElementById('ficha-sin').textContent=c.sinopsis;
   document.getElementById('ficha-datos').innerHTML='<div><dt>Realizado por</dt><dd>Niñas, niños y adolescentes de '+(c.comunidad||L.comunidad)+'</dd></div><div><dt>País</dt><dd>'+L.pais+'</dd></div><div><dt>Familia lingüística</dt><dd>'+L.familia+'</dd></div><div><dt>Duración</dt><dd>'+c.dur+'</dd></div>';
   ficha.classList.add('abierta'); document.body.style.overflow='hidden'; document.getElementById('cerrar').focus();

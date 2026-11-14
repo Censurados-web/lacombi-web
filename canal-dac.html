@@ -85,7 +85,7 @@
 (function(){
 function slug(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function etq(k){return k==='por-confirmar'?'Lengua por confirmar':'Lengua '+LENGUAS[k].nombre}
-var caps=CAPSULAS.map(function(c){return {palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:LENGUAS[c.l].color}});
+var caps=CAPSULAS.map(function(c){return {web:c.w||'',palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:LENGUAS[c.l].color}});
 var conVideo=caps.filter(function(c){return c.video});
 var orden=Object.keys(LENGUAS).filter(function(k){return k!=='por-confirmar'});
 document.getElementById('n-vid').textContent=caps.length;
@@ -95,6 +95,7 @@ function vmId(u){var m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);return m&&m[1]}
 function embed(u){var y=ytId(u);if(y)return 'https://www.youtube-nocookie.com/embed/'+y+'?rel=0&autoplay=1';var v=vmId(u);if(v)return 'https://player.vimeo.com/video/'+v+'?autoplay=1';return null}
 function local(u){return /\.mp4$/i.test(u)}
 function miniatura(c,img){
+  if(c.web&&!img._fallo){img.onerror=function(){img._fallo=1;img.onerror=null;miniatura(c,img)};img.src=c.web.replace(/\.mp4$/i,'.jpg');return}
   if(local(c.video)){img.src=c.video.replace(/\.mp4$/i,'.jpg');return}
   var y=ytId(c.video);if(y){img.src='https://i.ytimg.com/vi/'+y+'/hqdefault.jpg';return}
   var v=vmId(c.video);if(!v)return;
@@ -122,7 +123,7 @@ var ficha=document.getElementById('ficha'),caja=document.getElementById('ficha-c
 function abre(id){var c=caps.find(function(x){return x.id===id});if(!c||!c.video){cierra();return}actual=c;var L=LENGUAS[c.lengua];
   caja.className='ficha-caja '+c.fondo;document.getElementById('ficha-lengua').textContent=etq(c.lengua);
   document.getElementById('ficha-palabra').textContent=c.palabra;document.getElementById('ficha-trad').textContent=c.trad;
-  document.getElementById('ficha-video').innerHTML=local(c.video)?'<video src="'+c.video+'" poster="'+c.video.replace(/\.mp4$/i,'.jpg')+'" controls autoplay playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"></video>':'<iframe src="'+embed(c.video)+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+  var fv=document.getElementById('ficha-video');if(c.web){fv.innerHTML='<video poster="'+c.web.replace(/\.mp4$/i,'.jpg')+'" controls autoplay playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"><source src="'+c.web+'" type="video/mp4"></video>';var srcEl=fv.querySelector('source');srcEl.addEventListener('error',function(){if(c.video&&embed(c.video))fv.innerHTML='<iframe src="'+embed(c.video)+'" allow="autoplay; fullscreen" allowfullscreen></iframe>'});}else document.getElementById('ficha-video').innerHTML=local(c.video)?'<video src="'+c.video+'" poster="'+c.video.replace(/\.mp4$/i,'.jpg')+'" controls autoplay playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"></video>':'<iframe src="'+embed(c.video)+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
   document.getElementById('ficha-sin').textContent=c.sinopsis;
   document.getElementById('ficha-datos').innerHTML='<div><dt>Realizado por</dt><dd>Niñas, niños y adolescentes de '+(c.comunidad||L.comunidad)+'</dd></div><div><dt>País</dt><dd>'+L.pais+'</dd></div><div><dt>Duración</dt><dd>'+c.dur+'</dd></div>';
   ficha.classList.add('abierta');document.body.style.overflow='hidden';document.getElementById('cerrar').focus()}

@@ -92,7 +92,9 @@ document.getElementById('n-len').textContent=orden.filter(function(k){return cap
 function ytId(u){var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);return m&&m[1]}
 function vmId(u){var m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);return m&&m[1]}
 function embed(u){var y=ytId(u);if(y)return 'https://www.youtube-nocookie.com/embed/'+y+'?rel=0&autoplay=1';var v=vmId(u);if(v)return 'https://player.vimeo.com/video/'+v+'?autoplay=1';return null}
+function local(u){return /\.mp4$/i.test(u)}
 function miniatura(c,img){
+  if(local(c.video)){img.src=c.video.replace(/\.mp4$/i,'.jpg');return}
   var y=ytId(c.video);if(y){img.src='https://i.ytimg.com/vi/'+y+'/hqdefault.jpg';return}
   var v=vmId(c.video);if(!v)return;
   fetch('https://vimeo.com/api/oembed.json?url='+encodeURIComponent('https://vimeo.com/'+v)+'&width=640').then(function(r){return r.json()}).then(function(d){if(d.thumbnail_url){img.src=d.thumbnail_url.replace(/_\d+x\d+/,'_640x360');}}).catch(function(){});
@@ -119,7 +121,7 @@ var ficha=document.getElementById('ficha'),caja=document.getElementById('ficha-c
 function abre(id){var c=caps.find(function(x){return x.id===id});if(!c||!c.video){cierra();return}actual=c;var L=LENGUAS[c.lengua];
   caja.className='ficha-caja '+c.fondo;document.getElementById('ficha-lengua').textContent=etq(c.lengua);
   document.getElementById('ficha-palabra').textContent=c.palabra;document.getElementById('ficha-trad').textContent=c.trad;
-  document.getElementById('ficha-video').innerHTML='<iframe src="'+embed(c.video)+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+  document.getElementById('ficha-video').innerHTML=local(c.video)?'<video src="'+c.video+'" poster="'+c.video.replace(/\.mp4$/i,'.jpg')+'" controls autoplay playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"></video>':'<iframe src="'+embed(c.video)+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
   document.getElementById('ficha-sin').textContent=c.sinopsis;
   document.getElementById('ficha-datos').innerHTML='<div><dt>Realizado por</dt><dd>Niñas, niños y adolescentes de '+(c.comunidad||L.comunidad)+'</dd></div><div><dt>País</dt><dd>'+L.pais+'</dd></div><div><dt>Duración</dt><dd>'+c.dur+'</dd></div>';
   ficha.classList.add('abierta');document.body.style.overflow='hidden';document.getElementById('cerrar').focus()}

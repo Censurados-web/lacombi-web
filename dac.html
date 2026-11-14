@@ -292,7 +292,7 @@ function abre(id){
   var h=document.getElementById('ficha-palabra'); delete h.dataset.viva; h.textContent=c.palabra; letrasVivas(h);
   document.getElementById('ficha-trad').textContent=c.trad;
   var v=document.getElementById('ficha-video'), src=c.video&&embed(c.video);
-  v.innerHTML=src?'<iframe src="'+src+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>':'<p class="pendiente">Vídeo pendiente de enlazar.</p>';
+  v.innerHTML=/\.mp4$/i.test(c.video)?'<video src="'+c.video+'" poster="'+c.video.replace(/\.mp4$/i,'.jpg')+'" controls playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"></video>':src?'<iframe src="'+src+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>':'<p class="pendiente">Vídeo pendiente de enlazar.</p>';
   document.getElementById('ficha-sin').textContent=c.sinopsis;
   document.getElementById('ficha-datos').innerHTML='<div><dt>Realizado por</dt><dd>Niñas, niños y adolescentes de '+(c.comunidad||L.comunidad)+'</dd></div><div><dt>País</dt><dd>'+L.pais+'</dd></div><div><dt>Familia lingüística</dt><dd>'+L.familia+'</dd></div><div><dt>Duración</dt><dd>'+c.dur+'</dd></div>';
   ficha.classList.add('abierta'); document.body.style.overflow='hidden'; document.getElementById('cerrar').focus();

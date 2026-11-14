@@ -405,3 +405,5 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .creditos{font-size:15px;margin-top:14px;opacity:.85}
 .cortos.cortos-2{grid-template-columns:repeat(2,1fr)}
 @media (max-width:900px){.cortos.cortos-2{grid-template-columns:1fr}}
+.sub-h{font-size:26px;margin:30px 0 8px}
+.sub-p{max-width:70ch;margin-bottom:26px}

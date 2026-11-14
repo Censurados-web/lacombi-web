@@ -349,3 +349,4 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .art-num{font-weight:700;font-size:52px;line-height:1;min-width:1.3em}
 .art-tema{font-weight:600;font-size:15px;line-height:1.3}
 .art-tema small{display:block;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-bottom:3px}
+.linea-video video{width:100%;border-radius:10px;margin:6px 0 14px;background:#000;display:block}

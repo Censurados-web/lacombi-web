@@ -1,5 +1,139 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><title>Canal DAC · La Combi</title>
-<script>location.replace('dac.html'+(location.hash||'#canal'))</script>
-<meta http-equiv="refresh" content="0; url=dac.html#canal"></head>
-<body><p><a href="dac.html#canal">Ir al Canal DAC</a></p></body></html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canal DAC · La Combi · arte rodante</title>
+<meta name="description" content="Canal DAC: cápsulas de vídeo en lenguas originarias de los Diccionarios Audiovisuales Comunitarios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="La Combi · arte rodante, inicio"><img src="assets/logo-horizontal-negro.png" alt="La Combi"></a>
+    <button class="boton-menu" aria-expanded="false" aria-controls="menu">Menú</button>
+    <ul class="menu" id="menu">
+      <li><a href="canal-dac.html" class="menu-canal" aria-current="page">▶ Canal DAC</a></li>
+      <li><a href="dac.html">Diccionarios</a></li>
+      <li><a href="historias-en-movimiento.html">Historias en movimiento</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="muestras-de-cine.html">Cine</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="index.html#quienes">Quiénes somos</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="canal-tv">
+  <section class="tv-cab">
+    <div class="wrap">
+      <img class="tv-logo" src="assets/dac-logo-blanco.png" alt="DAC">
+      <div>
+        <span class="etiqueta">Canal DAC · Diccionarios Audiovisuales Comunitarios</span>
+        <h1>Palabras que se <span class="ondas naranja">ven y se escuchan</span></h1>
+        <p><b id="n-vid">0</b> cápsulas en <b id="n-len">0</b> lenguas originarias, hechas por niñas, niños y adolescentes de sus comunidades. Elige una y dale al play.</p>
+        <p class="tv-enlace"><a href="dac.html">Conocer el proyecto DAC →</a></p>
+      </div>
+    </div>
+  </section>
+  <nav class="tv-chips wrap" id="tv-chips" aria-label="Lenguas"></nav>
+  <div id="tv-filas"></div>
+</main>
+
+<div class="ficha" id="ficha" role="dialog" aria-modal="true" aria-labelledby="ficha-palabra">
+  <div class="ficha-caja" id="ficha-caja">
+    <button class="cerrar" id="cerrar">Cerrar ✕</button>
+    <span class="etiqueta" id="ficha-lengua"></span>
+    <h2 id="ficha-palabra"></h2>
+    <p class="trad" id="ficha-trad"></p>
+    <div class="marco" id="ficha-video"></div>
+    <p class="sinopsis" id="ficha-sin"></p>
+    <dl class="datos" id="ficha-datos"></dl>
+    <div class="acciones">
+      <button id="copiar">Copiar enlace</button>
+      <button id="anterior">← Anterior</button>
+      <button id="siguiente">Siguiente →</button>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <div>
+      <img src="assets/logo-vertical-blanco.png" alt="La Combi">
+      <small>la combi arte rodante · © 2026</small>
+    </div>
+    <ul class="redes">
+      <li><a href="https://www.instagram.com/lacombiarterodante">Instagram</a></li>
+      <li><a href="https://www.facebook.com/lacombi.arterodante">Facebook</a></li>
+      <li><a href="https://www.youtube.com/channel/UCHf-VamgDCu75dCzhq9Jtew">YouTube</a></li>
+      <li><a href="https://vimeo.com/user87088380">Vimeo</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="comun.js"></script>
+<script src="dac-datos.js"></script>
+<script>
+(function(){
+function slug(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function etq(k){return k==='por-confirmar'?'Lengua por confirmar':'Lengua '+LENGUAS[k].nombre}
+var caps=CAPSULAS.map(function(c){return {palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:LENGUAS[c.l].color}});
+var conVideo=caps.filter(function(c){return c.video});
+var orden=Object.keys(LENGUAS).filter(function(k){return k!=='por-confirmar'});
+document.getElementById('n-vid').textContent=caps.length;
+document.getElementById('n-len').textContent=orden.filter(function(k){return caps.some(function(c){return c.lengua===k})}).length;
+function ytId(u){var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);return m&&m[1]}
+function vmId(u){var m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);return m&&m[1]}
+function embed(u){var y=ytId(u);if(y)return 'https://www.youtube-nocookie.com/embed/'+y+'?rel=0&autoplay=1';var v=vmId(u);if(v)return 'https://player.vimeo.com/video/'+v+'?autoplay=1';return null}
+function miniatura(c,img){
+  var y=ytId(c.video);if(y){img.src='https://i.ytimg.com/vi/'+y+'/hqdefault.jpg';return}
+  var v=vmId(c.video);if(!v)return;
+  fetch('https://vimeo.com/api/oembed.json?url='+encodeURIComponent('https://vimeo.com/'+v)+'&width=640').then(function(r){return r.json()}).then(function(d){if(d.thumbnail_url){img.src=d.thumbnail_url.replace(/_\d+x\d+/,'_640x360');}}).catch(function(){});
+}
+var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);miniatura(e.target._c,e.target)}})},{rootMargin:'300px'}):null;
+function tarjeta(c){
+  var b=document.createElement(c.video?'button':'div');b.className='tv-tarjeta '+(c.video?'':'sin-video');b.dataset.id=c.id;
+  b.innerHTML='<span class="tv-mini '+c.fondo+'"><span class="tv-palabra">'+c.palabra+'</span><img alt="" loading="lazy"><span class="tv-play">'+(c.video?'▶':'Próximamente')+'</span><span class="tv-dur">'+c.dur+'</span></span><span class="tv-tit">'+c.palabra+'</span><span class="tv-meta">'+c.trad+' · '+LENGUAS[c.lengua].nombre+'</span>';
+  var img=b.querySelector('img');img.onload=function(){img.classList.add('cargada')};img._c=c;
+  if(c.video){b.onclick=function(){location.hash=c.id};if(io)io.observe(img);else miniatura(c,img)}
+  return b}
+var filas=document.getElementById('tv-filas'),chips=document.getElementById('tv-chips');
+function fila(id,titulo,sub,lista){
+  var s=document.createElement('section');s.className='tv-fila';s.id=id;
+  s.innerHTML='<div class="wrap tv-fila-cab"><h2>'+titulo+'</h2><span>'+sub+'</span></div><div class="tv-carril"></div>';
+  var car=s.querySelector('.tv-carril');lista.forEach(function(c){car.appendChild(tarjeta(c))});filas.appendChild(s)}
+fila('todas','Para empezar','Una cápsula de cada lengua',orden.map(function(k){return conVideo.filter(function(c){return c.lengua===k})[0]}).filter(Boolean));
+function chip(id,txt,col){var a=document.createElement('a');a.href='#'+id;a.className='chip';a.innerHTML=(col?'<i class="punto '+col+'"></i>':'')+txt;a.onclick=function(e){e.preventDefault();var t=document.getElementById(id);window.scrollTo({top:t.getBoundingClientRect().top+scrollY-90,behavior:'smooth'})};chips.appendChild(a)}
+orden.forEach(function(k){var l=caps.filter(function(c){return c.lengua===k});if(!l.length)return;var L=LENGUAS[k];
+  l.sort(function(a,b){return (b.video?1:0)-(a.video?1:0)});
+  fila('lengua-'+k,L.nombre,L.comunidad+' · '+L.pais,l);chip('lengua-'+k,L.nombre,L.color)});
+// Reproductor
+var ficha=document.getElementById('ficha'),caja=document.getElementById('ficha-caja'),actual=null;
+function abre(id){var c=caps.find(function(x){return x.id===id});if(!c||!c.video){cierra();return}actual=c;var L=LENGUAS[c.lengua];
+  caja.className='ficha-caja '+c.fondo;document.getElementById('ficha-lengua').textContent=etq(c.lengua);
+  document.getElementById('ficha-palabra').textContent=c.palabra;document.getElementById('ficha-trad').textContent=c.trad;
+  document.getElementById('ficha-video').innerHTML='<iframe src="'+embed(c.video)+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+  document.getElementById('ficha-sin').textContent=c.sinopsis;
+  document.getElementById('ficha-datos').innerHTML='<div><dt>Realizado por</dt><dd>Niñas, niños y adolescentes de '+(c.comunidad||L.comunidad)+'</dd></div><div><dt>País</dt><dd>'+L.pais+'</dd></div><div><dt>Duración</dt><dd>'+c.dur+'</dd></div>';
+  ficha.classList.add('abierta');document.body.style.overflow='hidden';document.getElementById('cerrar').focus()}
+function cierra(){ficha.classList.remove('abierta');document.body.style.overflow='';document.getElementById('ficha-video').innerHTML='';if(actual){actual=null;if(location.hash)history.replaceState(null,'',location.pathname+location.search)}}
+function salta(d){if(!actual)return;var i=conVideo.indexOf(actual);location.hash=conVideo[(i+d+conVideo.length)%conVideo.length].id}
+function ruta(){var h=location.hash.slice(1);if(h.indexOf('lengua-')===0){var t=document.getElementById(h);if(t)setTimeout(function(){window.scrollTo({top:t.getBoundingClientRect().top+scrollY-90})},50);return}if(h&&caps.some(function(c){return c.id===h}))abre(h);else if(actual)cierra()}
+window.addEventListener('hashchange',ruta);
+document.getElementById('cerrar').onclick=cierra;document.getElementById('anterior').onclick=function(){salta(-1)};document.getElementById('siguiente').onclick=function(){salta(1)};
+ficha.addEventListener('click',function(e){if(e.target===ficha)cierra()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')cierra()});
+document.getElementById('copiar').onclick=function(){try{navigator.clipboard.writeText(location.href);this.textContent='¡Copiado!'}catch(e){}};
+ruta();
+})();
+</script>
+
+</body>
+</html>

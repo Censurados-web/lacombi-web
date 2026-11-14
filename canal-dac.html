@@ -22,7 +22,7 @@
       <li><a href="dac.html">Diccionarios DAC</a></li>
       <li><a href="canal-dac.html" class="menu-canal" aria-current="page">▶ Canal DAC</a></li>
       <li><a href="historias-en-movimiento.html">Historias en movimiento</a></li>
-      <li><a href="recursos.html">Recursos educativos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
       <li><a href="index.html#contacto">Contacto</a></li>
     </ul>
   </div>
@@ -84,7 +84,7 @@
 function slug(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function etq(k){return k==='por-confirmar'?'Lengua por confirmar':'Lengua '+LENGUAS[k].nombre}
 var caps=CAPSULAS.map(function(c){return {web:c.w||'',palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:LENGUAS[c.l].color}});
-var conVideo=caps.filter(function(c){return c.video});
+var conVideo=caps.filter(function(c){return c.video||c.web});
 var orden=Object.keys(LENGUAS).filter(function(k){return k!=='por-confirmar'});
 document.getElementById('n-vid').textContent=caps.length;
 document.getElementById('n-len').textContent=orden.filter(function(k){return caps.some(function(c){return c.lengua===k})}).length;
@@ -101,10 +101,10 @@ function miniatura(c,img){
 }
 var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);miniatura(e.target._c,e.target)}})},{rootMargin:'300px'}):null;
 function tarjeta(c){
-  var b=document.createElement(c.video?'button':'div');b.className='tv-tarjeta '+(c.video?'':'sin-video');b.dataset.id=c.id;
-  b.innerHTML='<span class="tv-mini '+c.fondo+'"><span class="tv-palabra">'+c.palabra+'</span><img alt="" loading="lazy"><span class="tv-play">'+(c.video?'▶':'Próximamente')+'</span><span class="tv-dur">'+c.dur+'</span></span><span class="tv-tit">'+c.palabra+'</span><span class="tv-meta">'+c.trad+' · '+LENGUAS[c.lengua].nombre+'</span>';
+  var tiene=c.video||c.web;var b=document.createElement(tiene?'button':'div');b.className='tv-tarjeta '+(tiene?'':'sin-video');b.dataset.id=c.id;
+  b.innerHTML='<span class="tv-mini '+c.fondo+'"><span class="tv-palabra">'+c.palabra+'</span><img alt="" loading="lazy"><span class="tv-play">'+(tiene?'▶':'Próximamente')+'</span><span class="tv-dur">'+c.dur+'</span></span><span class="tv-tit">'+c.palabra+'</span><span class="tv-meta">'+c.trad+' · '+LENGUAS[c.lengua].nombre+'</span>';
   var img=b.querySelector('img');img.onload=function(){img.classList.add('cargada')};img._c=c;
-  if(c.video){b.onclick=function(){location.hash=c.id};if(io)io.observe(img);else miniatura(c,img)}
+  if(tiene){b.onclick=function(){location.hash=c.id};if(io)io.observe(img);else miniatura(c,img)}
   return b}
 var filas=document.getElementById('tv-filas'),chips=document.getElementById('tv-chips');
 function fila(id,titulo,sub,lista){
@@ -114,11 +114,11 @@ function fila(id,titulo,sub,lista){
 fila('todas','Para empezar','Una cápsula de cada lengua',orden.map(function(k){return conVideo.filter(function(c){return c.lengua===k})[0]}).filter(Boolean));
 function chip(id,txt,col){var a=document.createElement('a');a.href='#'+id;a.className='chip';a.innerHTML=(col?'<i class="punto '+col+'"></i>':'')+txt;a.onclick=function(e){e.preventDefault();var t=document.getElementById(id);window.scrollTo({top:t.getBoundingClientRect().top+scrollY-90,behavior:'smooth'})};chips.appendChild(a)}
 orden.forEach(function(k){var l=caps.filter(function(c){return c.lengua===k});if(!l.length)return;var L=LENGUAS[k];
-  l.sort(function(a,b){return (b.video?1:0)-(a.video?1:0)});
+  l.sort(function(a,b){return ((b.video||b.web)?1:0)-((a.video||a.web)?1:0)});
   fila('lengua-'+k,L.nombre,L.comunidad+' · '+L.pais,l);chip('lengua-'+k,L.nombre,L.color)});
 // Reproductor
 var ficha=document.getElementById('ficha'),caja=document.getElementById('ficha-caja'),actual=null;
-function abre(id){var c=caps.find(function(x){return x.id===id});if(!c||!c.video){cierra();return}actual=c;var L=LENGUAS[c.lengua];
+function abre(id){var c=caps.find(function(x){return x.id===id});if(!c||!(c.video||c.web)){cierra();return}actual=c;var L=LENGUAS[c.lengua];
   caja.className='ficha-caja '+c.fondo;document.getElementById('ficha-lengua').textContent=etq(c.lengua);
   document.getElementById('ficha-palabra').textContent=c.palabra;document.getElementById('ficha-trad').textContent=c.trad;
   var fv=document.getElementById('ficha-video');if(c.web){fv.innerHTML='<video poster="'+c.web.replace(/\.mp4$/i,'.jpg')+'" controls autoplay playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"><source src="'+c.web+'" type="video/mp4"></video>';var srcEl=fv.querySelector('source');srcEl.addEventListener('error',function(){if(c.video&&embed(c.video))fv.innerHTML='<iframe src="'+embed(c.video)+'" allow="autoplay; fullscreen" allowfullscreen></iframe>'});}else document.getElementById('ficha-video').innerHTML=local(c.video)?'<video src="'+c.video+'" poster="'+c.video.replace(/\.mp4$/i,'.jpg')+'" controls autoplay playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"></video>':'<iframe src="'+embed(c.video)+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';

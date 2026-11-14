@@ -427,3 +427,14 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 @media (min-width:761px){
   .tv-carril{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));overflow:visible;max-width:var(--max);margin:0 auto;padding:4px 28px 18px;scroll-snap-type:none;gap:26px 20px}
 }
+
+/* Banner del Canal DAC en la página de Diccionarios */
+.canal-banner{background:#0f0f12;color:#fff}
+.canal-mosaico{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-decoration:none;transform:rotate(-2deg);transition:transform .4s}
+.canal-mosaico:hover{transform:rotate(0) scale(1.02)}
+.canal-mosaico span{aspect-ratio:16/9;border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;font-size:clamp(14px,1.6vw,20px)}
+.canal-mosaico span i{position:absolute;left:8px;bottom:8px;font-style:normal;font-size:11px;background:rgba(0,0,0,.6);color:#fff;border-radius:999px;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.canal-mosaico em{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;background:var(--naranja);color:#000;font-style:normal;font-size:34px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.5);padding-left:6px}
+.canal-mosaico:hover em{background:#fff}
+.yt{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.yt iframe{width:100%;height:100%;border:0;display:block}

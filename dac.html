@@ -22,7 +22,7 @@
       <li><a href="dac.html" aria-current="page">Diccionarios DAC</a></li>
       <li><a href="canal-dac.html" class="menu-canal">▶ Canal DAC</a></li>
       <li><a href="historias-en-movimiento.html">Historias en movimiento</a></li>
-      <li><a href="recursos.html">Recursos educativos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
       <li><a href="index.html#contacto">Contacto</a></li>
     </ul>
   </div>
@@ -40,7 +40,7 @@
           <div><b id="n-len">0</b><span>lenguas</span></div>
           <div><b>3</b><span>países</span></div>
         </div>
-        <p style="margin-top:34px"><a class="boton" href="#canal">Ver el Canal DAC</a></p>
+        <p style="margin-top:34px"><a class="boton" href="canal-dac.html">▶ Ver el Canal DAC</a></p>
       </div>
       <figure class="polaroid" style="--g:3deg"><img src="assets/fotos/dac-nina-camara.jpg" alt="Una niña graba con una cámara durante un taller DAC"><figcaption>Pequeñas guardianas de las lenguas</figcaption></figure>
     </div>
@@ -88,31 +88,31 @@
       <div class="fichas cuatro">
         <article class="ficha-p"><img src="assets/fotos/dac-taller-selva.jpg" alt="Taller DAC en la selva" loading="lazy"><div class="cuerpo"><span class="etiqueta">Seis jornadas en la comunidad</span><h3>DAC Talleres</h3><p>Espacios colaborativos de creación audiovisual donde niñas, niños y adolescentes trabajan con sabios, personas mayores, docentes y líderes de la comunidad.</p></div></article>
         <article class="ficha-p"><img src="assets/fotos/dac-stop-motion.jpg" alt="Escena de stop motion hecha en un taller DAC" loading="lazy"><div class="cuerpo"><span class="etiqueta">Formación de formadores</span><h3>DAC Formación</h3><p>Para docentes de primaria y secundaria, en especial de Educación Intercultural Bilingüe, líderes y comunicadores indígenas y estudiantes de universidades e institutos de educación: técnicas y recursos para hacer cápsulas con su alumnado, en sus lenguas.</p></div></article>
-        <article class="ficha-p"><img src="assets/fotos/dac.jpg" alt="Niñas y niños en un taller DAC" loading="lazy"><div class="cuerpo"><span class="etiqueta">La videoteca</span><h3>Canal DAC</h3><p>Reúne las cápsulas de todos los diccionarios, cada una con su territorio, sinopsis y duración, para conectar y visibilizar la diversidad de lenguas en un mismo espacio.</p><a class="mas" href="#canal">Ver el canal →</a></div></article>
+        <article class="ficha-p"><img src="assets/fotos/dac.jpg" alt="Niñas y niños en un taller DAC" loading="lazy"><div class="cuerpo"><span class="etiqueta">La videoteca</span><h3>Canal DAC</h3><p>Reúne las cápsulas de todos los diccionarios, cada una con su territorio, sinopsis y duración, para conectar y visibilizar la diversidad de lenguas en un mismo espacio.</p><a class="mas" href="canal-dac.html">Ver el canal →</a></div></article>
         <article class="ficha-p"><img src="assets/fotos/dac-pintura.jpg" alt="Pintura facial durante una cápsula DAC" loading="lazy"><div class="cuerpo"><span class="etiqueta">Difusión</span><h3>DAC Comunidad</h3><p>Cine fórums escolares, presentaciones públicas y participación en encuentros y festivales, para dar a conocer los diccionarios a nivel local, regional e internacional.</p></div></article>
       </div>
     </div>
   </section>
 
-  <section class="bloque f-blanco" id="canal" style="padding-bottom:30px">
-    <div class="wrap">
-      <span class="etiqueta">La videoteca del proyecto</span>
-      <h2 class="titulo">Canal DAC</h2>
-      <p class="texto">Todas las cápsulas de los Diccionarios Audiovisuales Comunitarios, hechas por niñas, niños y adolescentes, con subtítulos en castellano para que las lenguas se escuchen entre sí. Busca una palabra o filtra por lengua.</p>
+  <section class="bloque canal-banner" id="canal">
+    <div class="wrap dos" style="align-items:center">
+      <div>
+        <span class="etiqueta">La videoteca del proyecto</span>
+        <h2 class="titulo">Canal <span class="ondas naranja">DAC</span></h2>
+        <p class="texto">Todas las cápsulas de los Diccionarios Audiovisuales Comunitarios, hechas por niñas, niños y adolescentes, con subtítulos en castellano para que las lenguas se escuchen entre sí. Míralas como en una plataforma de vídeo, ordenadas por lengua.</p>
+        <p style="margin-top:28px"><a class="boton blanco" href="canal-dac.html">▶ Entrar al Canal DAC</a></p>
+      </div>
+      <a class="canal-mosaico" href="canal-dac.html" aria-label="Entrar al Canal DAC">
+        <span class="f-azul"><b>Kamaleki</b><i>▶</i></span>
+        <span class="f-naranja"><b>Papacuna</b><i>▶</i></span>
+        <span class="f-magenta-claro"><b>Kene</b><i>▶</i></span>
+        <span class="f-azul-claro"><b>Shiromega</b><i>▶</i></span>
+        <span class="f-naranja-claro"><b>Isinaka</b><i>▶</i></span>
+        <span class="f-negro"><b>Baawaja</b><i>▶</i></span>
+        <em>▶</em>
+      </a>
     </div>
   </section>
-
-  <div class="filtros">
-    <div class="wrap">
-      <input class="buscador" id="buscar" type="search" placeholder="Busca una palabra: luna, maíz, río…" aria-label="Buscar cápsula">
-      <div class="chips" id="chips" role="group" aria-label="Filtrar por lengua"></div>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="rejilla" id="rejilla"></div>
-    <p class="sin-resultados" id="vacio">No hay cápsulas con esa palabra. Prueba con otra o quita el filtro de lengua.</p>
-  </div>
 
   <section class="bloque f-naranja" id="lenguas" data-ruta="techo">
     <div class="wrap">
@@ -191,23 +191,7 @@
   </section>
 </main>
 
-<!-- Ficha de cada cápsula: se abre con un enlace propio (canal-dac.html#palabra) -->
-<div class="ficha" id="ficha" role="dialog" aria-modal="true" aria-labelledby="ficha-palabra">
-  <div class="ficha-caja" id="ficha-caja">
-    <button class="cerrar" id="cerrar">Cerrar ✕</button>
-    <span class="etiqueta" id="ficha-lengua"></span>
-    <h2 id="ficha-palabra"></h2>
-    <p class="trad" id="ficha-trad"></p>
-    <div class="marco" id="ficha-video"></div>
-    <p class="sinopsis" id="ficha-sin"></p>
-    <dl class="datos" id="ficha-datos"></dl>
-    <div class="acciones">
-      <button id="copiar">Copiar enlace</button>
-      <button id="anterior">← Anterior</button>
-      <button id="siguiente">Siguiente →</button>
-    </div>
-  </div>
-</div>
+
 
 <footer class="pie">
   <div class="wrap">
@@ -227,88 +211,21 @@
 <script src="comun.js"></script>
 <script src="dac-datos.js"></script>
 <script>
-/* ===== DATOS DEL CANAL =====
-   Para añadir una cápsula, copia una línea y cambia los datos.
-   video: enlace de YouTube o Vimeo (déjalo vacío "" si aún no está subido). */
-
-
-/* ===== LÓGICA ===== */
-var FONDOS=['f-naranja','f-magenta','f-azul'];
-function slug(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
-function etq(k){return k==='por-confirmar'?'Lengua por confirmar':'Lengua '+LENGUAS[k].nombre}
-function sinTilde(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
-var caps=CAPSULAS.map(function(c,i){return {web:c.w||'',palabra:c.p,trad:c.t,lengua:c.l,dur:c.d,video:c.v||'',anio:c.a,sinopsis:c.s||'',comunidad:c.c,id:slug(c.p),fondo:LENGUAS[c.l].color}});
-var filtro='todas', texto='', visibles=caps;
-
-var cuenta={}; caps.forEach(function(c){cuenta[c.lengua]=(cuenta[c.lengua]||0)+1});
-document.getElementById('n-cap').textContent=caps.length;
+(function(){
+function slug(t){return t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+// Enlaces antiguos (dac.html#palabra o #lengua-x) llevan al Canal DAC
+var h=location.hash.slice(1);
+if(h&&(h.indexOf('lengua-')===0||CAPSULAS.some(function(c){return slug(c.p)===h}))){location.replace('canal-dac.html#'+h);return}
+var cuenta={};CAPSULAS.forEach(function(c){cuenta[c.l]=(cuenta[c.l]||0)+1});
+document.getElementById('n-cap').textContent=CAPSULAS.length;
 document.getElementById('n-len').textContent=Object.keys(cuenta).filter(function(k){return k!=='por-confirmar'}).length;
-
-// Chips de lengua
-var chips=document.getElementById('chips');
-function filtrar(val,ir){filtro=val;chips.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.val===val)});pinta();if(ir){var t=document.getElementById('canal');window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'})}}
-function chip(val,label,n){var b=document.createElement('button');b.className='chip';b.dataset.val=val;b.setAttribute('aria-pressed',val===filtro);
-  b.innerHTML=(val!=='todas'?'<i class="punto '+LENGUAS[val].color+'"></i>':'')+label+(n?'<small>'+n+'</small>':'');b.onclick=function(){filtrar(val)};chips.appendChild(b)}
-chip('todas','Todas',caps.length);
-Object.keys(LENGUAS).forEach(function(k){if(cuenta[k])chip(k,LENGUAS[k].nombre,cuenta[k])});
-
-// Rejilla
-var rej=document.getElementById('rejilla');
-function pinta(){
-  var q=sinTilde(texto.trim());
-  visibles=caps.filter(function(c){return (filtro==='todas'||c.lengua===filtro)&&(!q||sinTilde(c.palabra+' '+c.trad+' '+LENGUAS[c.lengua].nombre).indexOf(q)>-1)});
-  rej.innerHTML='';
-  visibles.forEach(function(c){
-    var b=document.createElement('button');b.className='capsula '+c.fondo;b.dataset.id=c.id;
-    b.innerHTML='<span class="etiqueta">'+etq(c.lengua)+'</span><b>'+c.palabra+'</b><span class="trad">'+c.trad+'</span><span class="pie-cap"><span>'+LENGUAS[c.lengua].pais+'</span><span>▶ '+c.dur+'</span></span>';
-    b.onclick=function(){location.hash=c.id};
-    rej.appendChild(b); letrasVivas(b.querySelector('b'));
-  });
-  document.getElementById('vacio').style.display=visibles.length?'none':'block';
-}
-document.getElementById('buscar').addEventListener('input',function(e){texto=e.target.value;pinta()});
-pinta();
-
-// Lista de lenguas
 var ll=document.getElementById('lista-lenguas');
 Object.keys(LENGUAS).forEach(function(k){if(k==='por-confirmar')return;var L=LENGUAS[k];
-  var d=document.createElement('div');d.className='lengua';d.style.borderTop='14px solid';d.classList.add('borde-'+L.color);
+  var d=document.createElement(cuenta[k]?'a':'div');d.className='lengua';d.style.borderTop='14px solid';d.classList.add('borde-'+L.color);
   d.innerHTML='<h3>'+L.nombre+'</h3><span class="etiqueta">'+L.pais+' · familia '+L.familia+'</span><p>'+L.comunidad+'</p><p style="margin-bottom:10px">'+(L.texto||'')+'</p><p><b>'+(cuenta[k]||0)+'</b> cápsulas'+(cuenta[k]?'':' · próximamente')+'</p>'+(cuenta[k]?'<span class="ver-lengua">Ver sus cápsulas →</span>':'');
-  if(cuenta[k]){d.classList.add('clicable');d.tabIndex=0;d.setAttribute('role','button');d.onclick=function(){filtrar(k,true)};d.onkeydown=function(e){if(e.key==='Enter')filtrar(k,true)}}
+  if(cuenta[k]){d.classList.add('clicable');d.href='canal-dac.html#lengua-'+k;d.style.textDecoration='none';d.style.color='inherit'}
   ll.appendChild(d)});
-
-// Ficha
-var ficha=document.getElementById('ficha'), caja=document.getElementById('ficha-caja'), actual=null;
-function embed(url){
-  var m=url.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/); if(m)return 'https://www.youtube-nocookie.com/embed/'+m[1]+'?rel=0';
-  m=url.match(/vimeo\.com\/(?:video\/)?(\d+)/); if(m)return 'https://player.vimeo.com/video/'+m[1];
-  return null}
-function abre(id){
-  var c=caps.find(function(x){return x.id===id}); if(!c){cierra();return}
-  actual=c; var L=LENGUAS[c.lengua];
-  caja.className='ficha-caja '+c.fondo;
-  document.getElementById('ficha-lengua').textContent=etq(c.lengua);
-  var h=document.getElementById('ficha-palabra'); delete h.dataset.viva; h.textContent=c.palabra; letrasVivas(h);
-  document.getElementById('ficha-trad').textContent=c.trad;
-  var v=document.getElementById('ficha-video'), src=c.video&&embed(c.video);
-  if(c.web){v.innerHTML='<video poster="'+c.web.replace(/\.mp4$/i,'.jpg')+'" controls playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"><source src="'+c.web+'" type="video/mp4"></video>';v.querySelector('source').addEventListener('error',function(){if(src)v.innerHTML='<iframe src="'+src+'" allow="autoplay; fullscreen" allowfullscreen></iframe>'});}else v.innerHTML=/\.mp4$/i.test(c.video)?'<video src="'+c.video+'" poster="'+c.video.replace(/\.mp4$/i,'.jpg')+'" controls playsinline controlsList="nodownload" disablePictureInPicture oncontextmenu="return false" style="width:100%;height:100%;background:#000"></video>':src?'<iframe src="'+src+'" title="'+c.palabra+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>':'<p class="pendiente">Vídeo pendiente de enlazar.</p>';
-  document.getElementById('ficha-sin').textContent=c.sinopsis;
-  document.getElementById('ficha-datos').innerHTML='<div><dt>Realizado por</dt><dd>Niñas, niños y adolescentes de '+(c.comunidad||L.comunidad)+'</dd></div><div><dt>País</dt><dd>'+L.pais+'</dd></div><div><dt>Familia lingüística</dt><dd>'+L.familia+'</dd></div><div><dt>Duración</dt><dd>'+c.dur+'</dd></div>';
-  ficha.classList.add('abierta'); document.body.style.overflow='hidden'; document.getElementById('cerrar').focus();
-}
-function cierra(){ficha.classList.remove('abierta');document.body.style.overflow='';document.getElementById('ficha-video').innerHTML='';
-  if(actual){var b=rej.querySelector('[data-id="'+actual.id+'"]');actual=null;if(location.hash)history.replaceState(null,'',location.pathname+location.search);if(b)b.focus()}}
-function salta(d){if(!actual)return;var lista=visibles.length?visibles:caps,i=lista.indexOf(actual);if(i<0)i=0;location.hash=lista[(i+d+lista.length)%lista.length].id}
-function ruta(){var h=location.hash.slice(1);if(h.indexOf('lengua-')===0&&LENGUAS[h.slice(7)]){filtrar(h.slice(7),true);return}if(h&&caps.some(function(c){return c.id===h}))abre(h);else if(actual)cierra()}
-window.addEventListener('hashchange',ruta);
-document.getElementById('cerrar').onclick=cierra;
-document.getElementById('anterior').onclick=function(){salta(-1)};
-document.getElementById('siguiente').onclick=function(){salta(1)};
-ficha.addEventListener('click',function(e){if(e.target===ficha)cierra()});
-document.addEventListener('keydown',function(e){if(!actual)return;if(e.key==='Escape')cierra();if(e.key==='ArrowRight')salta(1);if(e.key==='ArrowLeft')salta(-1)});
-document.getElementById('copiar').onclick=function(){var b=this,url=location.href.split('#')[0]+'#'+actual.id;
-  try{navigator.clipboard.writeText(url).then(function(){b.textContent='¡Copiado!';setTimeout(function(){b.textContent='Copiar enlace'},1600)},function(){b.textContent=url})}catch(e){b.textContent=url}};
+})();
 </script>
-<script>ruta();</script>
 </body>
 </html>

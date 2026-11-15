@@ -8,6 +8,7 @@ var LENGUAS={
   'shipibo-konibo': {nombre:'Shipibo-konibo', color:'f-magenta-claro', texto:'Lengua amazónica de la familia pano, hablada en las cuencas del Ucayali, el Pisqui y el Madre de Dios.', comunidad:'San Francisco (Ucayali)',   pais:'Perú',   familia:'Pano'},
   'ese-eja':        {nombre:'Ese eja', color:'f-negro', texto:'Lengua amazónica de la familia tacana, entre Perú y Bolivia. La UNESCO la considera seriamente en peligro.',        comunidad:'Infierno (Madre de Dios)',  pais:'Perú',   familia:'Tacana'},
   'aymara':         {nombre:'Aymara', color:'f-naranja-claro', texto:'Lengua andina de la familia aru, vital, con unos 443.000 hablantes en Perú, Bolivia, Argentina y Chile.',         comunidad:'Chua Chua (Puno)',          pais:'Perú',   familia:'Aru'},
+  'embera':         {nombre:'Emberá', color:'f-oliva', texto:'Lengua de la familia chocó, hablada por el pueblo emberá en Panamá y Colombia.', comunidad:'Comunidad emberá', pais:'Panamá', familia:'chocó'},
   'por-confirmar':  {nombre:'Lengua por confirmar', color:'f-blanco-borde', comunidad:'Por confirmar',       pais:'—',      familia:'—'}
 };
 var CAPSULAS=[
@@ -54,5 +55,8 @@ var CAPSULAS=[
   {"p": "Yompere", "t": "Yompere", "l": "yanesha", "d": "3:30", "s": "Los hermanos Yompor Yompere y Yompor Ror: el primero quedó convertido en piedra. Cada año, a mediados de noviembre, se celebra una fiesta en la que los peregrinos tocan las piedras."},
   {"p": "Kene", "t": "Diseños kene", "l": "shipibo-konibo", "d": "2:58", "v": "https://vimeo.com/357015439", "a": 2019, "s": "El kene es un arte femenino realizado por las mujeres Shipibo-Konibo. Ellas, a través de visiones que provienen de plantas sagradas, observan distintos patrones geométricos que luego pintan, tejen y bordan en los cuerpos, las telas y las tinajas."},
   {"p": "Betén", "t": "Mazamorra", "l": "shipibo-konibo", "d": "3:26", "v": "https://vimeo.com/357591294", "a": 2019, "s": "¿Cuál es el plato hecho con plátano verde y pescado que tanto gusta a los pobladores de Ucayali? Los niños y niñas de la comunidad Shipibo-Konibo de San Francisco de Yarinacocha nos cuentan todos los secretos para preparar el mejor betén."},
-  {"p": "Masha", "t": "Danza masha", "l": "shipibo-konibo", "d": "2:45", "v": "https://vimeo.com/357016853", "a": 2019, "s": "Los Shipibo-Konibo son un pueblo que baila. Y cuando quieren rendir homenaje a la yakumama lo hacen de forma circular, en ceremonias colectivas en las que también beben masato. Todos danzan descalzos esbozando dibujos en el suelo."}
+  {"p": "Masha", "t": "Danza masha", "l": "shipibo-konibo", "d": "2:45", "v": "https://vimeo.com/357016853", "a": 2019, "s": "Los Shipibo-Konibo son un pueblo que baila. Y cuando quieren rendir homenaje a la yakumama lo hacen de forma circular, en ceremonias colectivas en las que también beben masato. Todos danzan descalzos esbozando dibujos en el suelo."},
+  {"p": "Dadjirá djio", "t": "", "l": "embera", "d": "3:25", "s": ""},
+  {"p": "Kipará", "t": "", "l": "embera", "d": "2:41", "s": "Las niñas y los niños emberá se pintan con kipará."},
+  {"p": "Piriatí", "t": "", "l": "embera", "d": "3:05", "s": ""}
 ];

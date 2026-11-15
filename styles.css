@@ -463,3 +463,4 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .tv-pais{display:flex;align-items:baseline;gap:16px;margin-top:50px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18)}
 .tv-pais h2{font-size:clamp(30px,3.6vw,46px)}
 .tv-pais span{opacity:.6;font-size:14px}
+.f-oliva{background:#c8c03a;color:#000}

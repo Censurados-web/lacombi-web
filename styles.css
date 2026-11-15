@@ -452,3 +452,8 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
   .submenu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;padding:0 0 0 16px;min-width:0;background:none}
   .submenu a{padding:6px 0!important;font-size:12px!important;opacity:.8}
 }
+.mosaico-4{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mosaico-4 img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px}
+.mosaico-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mosaico-3 img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px}
+.lineas.lineas-2{grid-template-columns:1fr 1fr}

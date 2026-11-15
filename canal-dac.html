@@ -46,7 +46,8 @@
       </div>
     </div>
   </section>
-  <nav class="tv-chips wrap" id="tv-chips" aria-label="Lenguas"></nav>
+  <nav class="tv-chips wrap" id="tv-paises" aria-label="Países"><span class="tv-chips-tit">Por país</span></nav>
+  <nav class="tv-chips wrap" id="tv-chips" aria-label="Lenguas"><span class="tv-chips-tit">Por lengua</span></nav>
   <div id="tv-filas"></div>
 </main>
 
@@ -119,9 +120,16 @@ function fila(id,titulo,sub,lista){
   var car=s.querySelector('.tv-carril');lista.forEach(function(c){car.appendChild(tarjeta(c))});filas.appendChild(s)}
 fila('todas','Para empezar','Una cápsula de cada lengua',orden.map(function(k){return conVideo.filter(function(c){return c.lengua===k})[0]}).filter(Boolean));
 function chip(id,txt,col){var a=document.createElement('a');a.href='#'+id;a.className='chip';a.innerHTML=(col?'<i class="punto '+col+'"></i>':'')+txt;a.onclick=function(e){e.preventDefault();var t=document.getElementById(id);window.scrollTo({top:t.getBoundingClientRect().top+scrollY-90,behavior:'smooth'})};chips.appendChild(a)}
-orden.forEach(function(k){var l=caps.filter(function(c){return c.lengua===k});if(!l.length)return;var L=LENGUAS[k];
-  l.sort(function(a,b){return ((b.video||b.web)?1:0)-((a.video||a.web)?1:0)});
-  fila('lengua-'+k,L.nombre,L.comunidad+' · '+L.pais,l);chip('lengua-'+k,L.nombre,L.color)});
+var paisesEl=document.getElementById('tv-paises');
+var paises=[];orden.forEach(function(k){var p=LENGUAS[k].pais;if(p&&p!=='—'&&paises.indexOf(p)<0&&caps.some(function(c){return c.lengua===k}))paises.push(p)});
+paises.forEach(function(p){
+  var pid='pais-'+slug(p);var n=caps.filter(function(c){return LENGUAS[c.lengua].pais===p}).length;
+  var h=document.createElement('div');h.className='wrap tv-pais';h.id=pid;h.innerHTML='<h2>'+p+'</h2><span>'+n+' cápsulas</span>';filas.appendChild(h);
+  var a=document.createElement('a');a.href='#'+pid;a.className='chip chip-pais';a.textContent=p+' ('+n+')';a.onclick=function(e){e.preventDefault();var t=document.getElementById(pid);window.scrollTo({top:t.getBoundingClientRect().top+scrollY-90,behavior:'smooth'})};paisesEl.appendChild(a);
+  orden.forEach(function(k){if(LENGUAS[k].pais!==p)return;var l=caps.filter(function(c){return c.lengua===k});if(!l.length)return;var L=LENGUAS[k];
+    l.sort(function(a,b){return ((b.video||b.web)?1:0)-((a.video||a.web)?1:0)});
+    fila('lengua-'+k,L.nombre,L.comunidad,l);chip('lengua-'+k,L.nombre,L.color)});
+});
 // Reproductor
 var ficha=document.getElementById('ficha'),caja=document.getElementById('ficha-caja'),actual=null;
 function abre(id){var c=caps.find(function(x){return x.id===id});if(!c||!(c.video||c.web)){cierra();return}actual=c;var L=LENGUAS[c.lengua];
@@ -133,7 +141,7 @@ function abre(id){var c=caps.find(function(x){return x.id===id});if(!c||!(c.vide
   ficha.classList.add('abierta');document.body.style.overflow='hidden';document.getElementById('cerrar').focus()}
 function cierra(){ficha.classList.remove('abierta');document.body.style.overflow='';document.getElementById('ficha-video').innerHTML='';if(actual){actual=null;if(location.hash)history.replaceState(null,'',location.pathname+location.search)}}
 function salta(d){if(!actual)return;var i=conVideo.indexOf(actual);location.hash=conVideo[(i+d+conVideo.length)%conVideo.length].id}
-function ruta(){var h=location.hash.slice(1);if(h.indexOf('lengua-')===0){var t=document.getElementById(h);if(t)setTimeout(function(){window.scrollTo({top:t.getBoundingClientRect().top+scrollY-90})},50);return}if(h&&caps.some(function(c){return c.id===h}))abre(h);else if(actual)cierra()}
+function ruta(){var h=location.hash.slice(1);if(h.indexOf('lengua-')===0||h.indexOf('pais-')===0){var t=document.getElementById(h);if(t)setTimeout(function(){window.scrollTo({top:t.getBoundingClientRect().top+scrollY-90})},50);return}if(h&&caps.some(function(c){return c.id===h}))abre(h);else if(actual)cierra()}
 window.addEventListener('hashchange',ruta);
 document.getElementById('cerrar').onclick=cierra;document.getElementById('anterior').onclick=function(){salta(-1)};document.getElementById('siguiente').onclick=function(){salta(1)};
 ficha.addEventListener('click',function(e){if(e.target===ficha)cierra()});

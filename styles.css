@@ -464,3 +464,9 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .tv-pais h2{font-size:clamp(30px,3.6vw,46px)}
 .tv-pais span{opacity:.6;font-size:14px}
 .f-oliva{background:#c8c03a;color:#000}
+.hemeroteca{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:10px}
+.hemeroteca h3{font-size:30px;margin-bottom:10px}
+.hemeroteca ul{list-style:none}
+.hemeroteca li{padding:7px 0;border-bottom:1px solid #e5e5e5;font-size:15px}
+.hemeroteca li span{opacity:.6;font-size:13px}
+@media (max-width:760px){.hemeroteca{grid-template-columns:1fr}}

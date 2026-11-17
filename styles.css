@@ -490,3 +490,9 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 @media (max-width:1100px){.pantallas{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.pantallas{grid-template-columns:1fr}}
 .tv-laurel{position:absolute;top:10px;left:10px;background:var(--naranja);color:#000;font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;z-index:2}
+/* Canal DAC: cabecera centrada con el logo arriba */
+.tv-cab .wrap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+.tv-cab .wrap>div{display:flex;flex-direction:column;align-items:center}
+.tv-logo{width:clamp(150px,18vw,230px)}
+.tv-cab p{margin-left:auto;margin-right:auto}
+.tv-cab{padding:64px 0 46px}

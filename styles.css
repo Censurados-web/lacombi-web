@@ -496,3 +496,14 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .tv-logo{width:clamp(150px,18vw,230px)}
 .tv-cab p{margin-left:auto;margin-right:auto}
 .tv-cab{padding:64px 0 46px}
+.pantalla-destacada{grid-column:1/-1;background:var(--naranja);color:#000;border-color:var(--naranja);display:grid;grid-template-columns:1.6fr 1fr;gap:34px;align-items:center;padding:34px 36px}
+.pantalla-destacada h3{font-size:clamp(24px,2.6vw,34px);line-height:1.1;margin:8px 0 12px;color:#000}
+.pantalla-destacada p{font-size:17px;color:#000;opacity:1}
+.pantalla-destacada a{color:#000;text-decoration:underline}
+.pantalla-destacada .etiqueta{color:#000}
+.sellos{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.sellos li>*{display:flex;flex-direction:column;background:#000;color:#fff!important;border-radius:16px;padding:16px 20px;text-decoration:none!important}
+.sellos span{color:var(--naranja);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sellos b{font-size:22px;margin:4px 0 2px}
+.sellos small{opacity:.75;font-size:13px}
+@media (max-width:800px){.pantalla-destacada{grid-template-columns:1fr;padding:26px 22px}}

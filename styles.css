@@ -477,3 +477,10 @@ h1,h2,h3{font-weight:700;line-height:1.1;letter-spacing:-.01em}
 .recortes img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;display:block}
 .recortes figcaption{font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;font-weight:600}
 @media (max-width:760px){.recortes{grid-template-columns:1fr 1fr}}
+.pantallas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pantalla{border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:22px}
+.pantalla h3{font-size:22px;margin:6px 0 8px}
+.pantalla p{font-size:15px;opacity:.85}
+.pantalla a{display:inline-block;margin-top:12px;color:var(--naranja);font-weight:600;font-size:14px;text-decoration:none}
+.proceso-video{margin-top:50px;max-width:900px}
+@media (max-width:900px){.pantallas{grid-template-columns:1fr}}

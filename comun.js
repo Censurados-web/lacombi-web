@@ -42,12 +42,36 @@
         return 'M'+m+' '+(-o)+' V'+(H-m-r)+' Q'+m+' '+(H-m)+' '+(m+r)+' '+(H-m)+' H'+(W-m-r)+' Q'+(W-m)+' '+(H-m)+' '+(W-m)+' '+(H-m-r)+' V'+(-o);
     }
   }
+  // Que el camino nunca pise los textos: mide el contenido y abre aire en los lados por donde pasa la ruta.
+  var LADOS={'esquina':['bottom','right'],'esquina-izq':['left','bottom'],'techo':['top'],'suelo':['bottom'],'s':['right','bottom'],'u':['left','bottom','right']};
+  function despeja(sec,tipo,W,G,w){
+    ['top','right','bottom','left'].forEach(function(l){sec.style['padding'+l.charAt(0).toUpperCase()+l.slice(1)]=''});
+    var need=1.3*G+w/2+0.8*G; // borde → eje de la ruta + medio trazo + aire
+    var els=sec.querySelectorAll('h1,h2,h3,h4,p,li,a,.etiqueta,.btn,img,video,iframe,figure,blockquote,dl,form,.chip,.pantalla,.tv-tarjeta');
+    var sr=sec.getBoundingClientRect(), box=null;
+    for(var i=0;i<els.length;i++){
+      var e=els[i]; if(e.closest('svg.ruta'))continue;
+      var r=e.getBoundingClientRect(); if(!r.width||!r.height)continue;
+      if(getComputedStyle(e).position==='fixed')continue;
+      box=box?{t:Math.min(box.t,r.top),b:Math.max(box.b,r.bottom),l:Math.min(box.l,r.left),r:Math.max(box.r,r.right)}:{t:r.top,b:r.bottom,l:r.left,r:r.right};
+    }
+    if(!box)return;
+    var gap={top:box.t-sr.top,bottom:sr.bottom-box.b,left:box.l-sr.left,right:sr.right-box.r};
+    (LADOS[tipo]||[]).forEach(function(l){
+      if(gap[l]>=need)return;
+      var k='padding'+l.charAt(0).toUpperCase()+l.slice(1);
+      var cur=parseFloat(getComputedStyle(sec)[k])||0;
+      sec.style[k]=Math.ceil(cur+need-gap[l])+'px';
+    });
+  }
   function dibujaRuta(sec){
     var tipo=sec.dataset.ruta, color=sec.dataset.rutaColor||'#fff';
     var old=sec.querySelector(':scope > svg.ruta'); if(old)old.remove();
-    var W=sec.clientWidth, H=sec.clientHeight; if(!W||!H)return;
+    var W=sec.clientWidth; if(!W)return;
     if(W<720&&tipo!=='techo')tipo='suelo';
     var G=Math.max(26,Math.min(48,W*0.032)), w=0.42*G;
+    despeja(sec,tipo,W,G,w);
+    var H=sec.clientHeight; if(!H)return;
     var svg=document.createElementNS(NS,'svg'); svg.setAttribute('class','ruta'); svg.setAttribute('aria-hidden','true');
     svg.setAttribute('width',W); svg.setAttribute('height',H); svg.style.left=0; svg.style.top=0;
     var id='rm'+(++n), d=forma(tipo,W,H,G);
